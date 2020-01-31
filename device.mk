@@ -24,9 +24,9 @@ TARGET_FLATTEN_APEX := false
 
 # Prebuilt
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/product,system/product) \
+    $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/product,product) \
     $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/root,recovery/root) \
-    $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/permissions,system/product/etc/permissions) \
+    $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/permissions,product/etc/permissions) \
     $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/system,system) \
     $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/permissions,system/etc/permissions)
 

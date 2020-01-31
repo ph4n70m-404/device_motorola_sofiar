@@ -46,9 +46,6 @@ AB_OTA_PARTITIONS += \
     product \
     vbmeta_system
 
-PRODUCT_COPY_FILES += \
-    build/make/target/product/gsi/skip_mount.cfg:system/etc/init/config/skip_mount.cfg
-
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \

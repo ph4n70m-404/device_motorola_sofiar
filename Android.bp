@@ -1,0 +1,15 @@
+soong_namespace {
+    imports: ["hardware/qcom/bootctrl"],
+}
+
+cc_binary {
+	name: "lightsctl",
+	srcs: [
+		"lightsctl.cpp",
+	],
+	shared_libs: [
+		"android.hardware.light@2.0",
+		"libutils",
+		"libhidlbase",
+	],
+}

@@ -1,0 +1,8 @@
+#allow vendor_init default_prop:file { getattr map open read };
+#allow vendor_init default_prop:property_service set;
+#allow vendor_init exported_secure_prop:property_service set;
+allow vendor_init persist_debug_prop:file read;
+#allow vendor_init radio_prop:property_service set;
+#allow vendor_init system_data_file:dir { ioctl open read setattr };
+allow vendor_init system_file:file getattr;
+

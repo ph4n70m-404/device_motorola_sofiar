@@ -1,0 +1,24 @@
+/dsp(/.*)?              u:object_r:adsprpcd_file:s0
+/firmware(/.*)?         u:object_r:firmware_file:s0
+/bt_firmware(/.*)?      u:object_r:bt_firmware_file:s0
+/persist(/.*)?          u:object_r:persist_file:s0
+
+/vendor/fsg(/.*)?          u:object_r:fsg_file:s0
+/fsg(/.*)?          u:object_r:fsg_file:s0
+
+# Vendor overlay
+/(product|system/product)/vendor_overlay/[0-9]+/etc(/.*)?      u:object_r:vendor_configs_file:s0
+/(product|system/product)/vendor_overlay/[0-9]+/lib(64)?/hw    u:object_r:vendor_hal_file:s0
+# Lights - vendor overlay
+/(product|system/product)/vendor_overlay/[0-9]+/bin/hw/android\.hardware\.light@2\.0-service    u:object_r:hal_light_default_exec:s0
+# Health - vendor overlay
+/(product|system/product)/vendor_overlay/[0-9]+/bin/hw/android\.hardware\.health@2\.0-service    u:object_r:hal_health_default_exec:s0
+
+/sys/devices/platform/soc/88c000.i2c/i2c-2/2-0064/leds/red_moto(/.*)?		u:object_r:sysfs_leds:s0
+/sys/devices/platform/soc/88c000.i2c/i2c-2/2-0064/leds/blue_moto(/.*)?		u:object_r:sysfs_leds:s0
+/sys/devices/platform/soc/88c000.i2c/i2c-2/2-0064/leds/green_moto(/.*)?		u:object_r:sysfs_leds:s0
+
+/sys/devices/platform/soc/soc\:moto_aw8646_support/(/.*)?		u:object_r:sysfs_popup:s0
+/sys/devices/platform/soc/soc\:moto_aw8646_support/aw8646/control/(/.*)?		u:object_r:sysfs_popup:s0
+/sys/devices/platform/soc/88c000.i2c/i2c-2/2-000c/mxm1120_top/control/(/.*)?		u:object_r:sysfs_popup:s0
+/sys/devices/platform/soc/88c000.i2c/i2c-2/2-000f/mxm1120_bottom/control/(/.*)?		u:object_r:sysfs_popup:s0

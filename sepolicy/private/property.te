@@ -1,0 +1,4 @@
+type mot_bt_prop, property_type;
+type moto_system_prop, property_type;
+type moto_ota_prop, property_type;
+

@@ -1,0 +1,23 @@
+persist.mot_bt.    u:object_r:mot_bt_prop:s0
+
+camera.mot.is.coming.cts     u:object_r:exported_system_prop:s0 exact string
+camera.mot.is.coming.aosp    u:object_r:exported_system_prop:s0 exact string
+camera.mot.is.client.foreground    u:object_r:exported_system_prop:s0 exact string
+camera.mot.rc_id            u:object_r:exported_system_prop:s0 exact int
+camera.mot.mod_id           u:object_r:exported_system_prop:s0 exac
+
+persist.charge.led.lighting         u:object_r:exported_system_prop:s0 exact string
+persist.mot             u:object_r:moto_system_prop:s0
+
+ro.mot.build.customerid u:object_r:exported2_default_prop:s0 exact string
+
+ro.boot.hab.product u:object_r:exported2_default_prop:s0 exact string
+ro.boot.hab.cid u:object_r:exported2_default_prop:s0 exact int
+ro.boot.hab.csv u:object_r:exported2_default_prop:s0 exact int
+ro.mot.hab.product u:object_r:exported2_default_prop:s0 exact string
+ro.mot.hab.cid u:object_r:exported2_default_prop:s0 exact int
+ro.mot.hab.csv u:object_r:exported2_default_prop:s0 exact int
+
+ro.mot.build.guid          u:object_r:moto_ota_prop:s0
+ro.mot.version.full        u:object_r:moto_ota_prop:s0
+

@@ -1,0 +1,2 @@
+allow fsg_file tmpfs:filesystem associate;
+

@@ -1,0 +1,30 @@
+<manifest version="1.0" type="framework">
+    <hal format="hidl">
+        <name>vendor.omni.biometrics.fingerprint.inscreen</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IFingerprintInscreen</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.sigma_miracast</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>Isigma_miracast</name>
+            <instance>sigmahal</instance>
+        </interface>
+        <fqname>@1.0::Isigma_miracast/sigmahal</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.wifi.supplicant</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ISupplicantVendor</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</manifest>

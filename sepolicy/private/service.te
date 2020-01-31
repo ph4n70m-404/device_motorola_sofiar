@@ -1,0 +1,7 @@
+type mot_app_service,           service_manager_type;
+type mot_system_service,           service_manager_type;
+type mot_networkstats_service,           service_manager_type;
+type mot_bgproc_service,           service_manager_type;
+type mot_climanager_service,           service_manager_type;
+type mot_radio_service,           service_manager_type;
+

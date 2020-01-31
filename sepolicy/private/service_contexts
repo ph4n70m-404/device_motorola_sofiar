@@ -1,0 +1,25 @@
+checkin_mot                               u:object_r:mot_app_service:s0
+com.motorola.aon.glimpse_service          u:object_r:mot_app_service:s0
+vzwconnectivity                           u:object_r:mot_system_service:s0
+moto_networkstats                         u:object_r:mot_networkstats_service:s0
+locationproxy                             u:object_r:mot_system_service:s0
+partial_display_service                   u:object_r:mot_app_service:s0
+modality                                  u:object_r:mot_app_service:s0
+motodisplay_int_service                   u:object_r:mot_system_service:s0
+com.broadcom.nfc.Factory                  u:object_r:nfc_service:s0
+com.vzw.nfc.AidFilter                     u:object_r:nfc_service:s0
+moto_pers_data_block                      u:object_r:mot_system_service:s0
+moto_ai_tune                              u:object_r:mot_system_service:s0
+motorola_maya_performance                 u:object_r:mot_app_service:s0
+media.camera_bgproc                       u:object_r:mot_bgproc_service:s0
+nfc.st_ext                                u:object_r:nfc_service:s0
+nfc_settings                              u:object_r:nfc_service:s0
+climanager                                u:object_r:mot_climanager_service:s0
+motoexttelephony                          u:object_r:mot_radio_service:s0
+moto_ext_hw_service                       u:object_r:mot_system_service:s0
+moto_ext_telephony.registry               u:object_r:mot_system_service:s0
+singlehand_fold_service                   u:object_r:mot_system_service:s0
+media.eqservice                           u:object_r:audioserver_service:s0
+com.broadcom.nfc.Factory                  u:object_r:nfc_service:s0
+com.vzw.nfc.AidFilter                     u:object_r:nfc_service:s0
+

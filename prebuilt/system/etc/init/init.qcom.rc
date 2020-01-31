@@ -1,0 +1,28 @@
+on init
+    mount none /dev/null /vendor/overlay/TelephonyResCommon.apk bind
+    mount none /dev/null /vendor/overlay/framework-res__auto_generated_rro_vendor.apk bind
+    mount none /dev/null /vendor/lib/hw/lights.sm6150.so bind
+    mount none /dev/null /vendor/lib64/hw/lights.sm6150.so bind
+    setprop ro.carrier ${ro.boot.carrier}
+    setprop ro.vendor.carrier ${ro.boot.carrier}
+
+on boot
+    # FPC home button permissions
+    chown system system /sys/homebutton/enable
+    chown system system /sys/homebutton/enable_off
+    chown system system /sys/homebutton/haptic
+    chown system system /sys/homebutton/haptic_off
+    chown system system /sys/homebutton/proximity_check_off
+    chown system system /sys/homebutton/key
+    chown system system /sys/homebutton/key_hold
+    chown system system /sys/homebutton/key_dbltap
+    chown system system /sys/homebutton/key_left
+    chown system system /sys/homebutton/key_right
+    chown system system /sys/homebutton/key_screenoff
+    chown system system /sys/homebutton/key_screenoff_hold
+    chown system system /sys/homebutton/key_screenoff_dbltap
+    chown system system /sys/homebutton/key_screenoff_left
+    chown system system /sys/homebutton/key_screenoff_right
+
+service vendor.mot.light-hal-1-0 /system/bin/true
+    disabled

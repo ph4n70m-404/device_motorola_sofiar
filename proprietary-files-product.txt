@@ -1,12 +1,12 @@
 -product/framework/qcrilhook.jar
--product/framework/qti-telephony-common.jar
+-product/framework/qti-telephony-common.jar|74adbf98e89531ac385ab5c4cea3c2549a0d24b0
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -product/app/QtiTelephonyService/QtiTelephonyService.apk
 -product/framework/QtiTelephonyServicelibrary.jar
 -product/app/embms/embms.apk
 -product/framework/com.qti.dpmframework.jar
 -product/app/datastatusnotification/datastatusnotification.apk
--product/priv-app/ims/ims.apk
+-product/priv-app/ims/ims.apk|efacc9fa87dc44f2773ea15ff124a66e0ef18cdd
 product/lib64/vendor.qti.gnss@3.0.so
 product/lib64/vendor.qti.hardware.btconfigstore@1.0.so
 product/lib64/vendor.qti.imsrtpservice@2.1.so
@@ -358,7 +358,7 @@ product/etc/nfcee_access.xml
 product/lib/libdiag_system.so
 product/lib64/libdiag_system.so
 
--product/app/Nfc_st/Nfc_st.apk
+-product/app/Nfc_st/Nfc_st.apk|2a2de6cca6a7c759632d6aee17eca8f23752f060
 product/lib64/libnfc_st_dta.so
 product/lib/libnfc_st_dta.so
 product/lib64/libnfc_st_dta_jni.so

@@ -383,7 +383,6 @@ product/etc/sysconfig/whitelist_com.motorola.omadm.vzw.xml
 product/etc/permissions/privapp-permissions-com.motorola.omadm.vzw.xml
 product/etc/permissions/privapp-permissions-com.motorola.vzw.pco.extensions.pcoreceiver.xml
 
--product/priv-app/ImagerTuning/ImagerTuning.apk
 -product/framework/com.motorola.imager.foles.jar
 -product/priv-app/VzwDM/VzwDM.apk
 -product/priv-app/vzwPcoExt/vzwPcoExt.apk

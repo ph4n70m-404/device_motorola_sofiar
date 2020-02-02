@@ -281,10 +281,7 @@ lib64/libbtconfigstore.so
 #-framework/WfdCommon.jar
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
 
--app/MotCamera2AI/MotCamera2AI.apk
 -app/MotoSignatureApp/MotoSignatureApp.apk
--app/MotoLiveWallpaper/MotoLiveWallpaper.apk
--app/MotoPhotoEditor/MotoPhotoEditor.apk
 etc/NT36xxx_MP_Setting_Criteria_6016.csv
 etc/cne/Nexus/ATT/ATT_profiles.xml
 etc/cne/Nexus/ROW/ROW_profiles.xml

@@ -20,7 +20,8 @@
 #
 
 VENDOR_EXCEPTION_PATHS := omni \
-    motorola
+    motorola \
+    gapps
 
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
@@ -105,3 +106,5 @@ PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-11-01
 TARGET_VENDOR := motorola
 
 $(call inherit-product, vendor/motorola/def/def-vendor.mk)
+
+$(call inherit-product, vendor/gapps/config.mk)

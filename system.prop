@@ -168,3 +168,8 @@ persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 persist.radio.calls.on.ims=1
+
+persist.radio.pb.min.match=7
+persist.radio.suppress_ussd_rel=1
+ro.mot.popup_device=1
+ro.mot.product_wave=2019.4

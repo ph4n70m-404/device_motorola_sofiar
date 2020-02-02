@@ -89,9 +89,9 @@ PRODUCT_SHIPPING_API_LEVEL := 29
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := omni_def
 PRODUCT_DEVICE := def
-PRODUCT_BRAND := Motorola
-PRODUCT_MANUFACTURER := Lenovo
-PRODUCT_MODEL := Moto One Hyper
+PRODUCT_BRAND := motorola
+PRODUCT_MANUFACTURER := motorola
+PRODUCT_MODEL := moto one hyper
 
 TARGET_DEVICE := MotoOneHyper
 PRODUCT_SYSTEM_NAME := MotoOneHyper

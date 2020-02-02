@@ -90,15 +90,15 @@ PRODUCT_NAME := omni_def
 PRODUCT_DEVICE := def
 PRODUCT_BRAND := Motorola
 PRODUCT_MANUFACTURER := Lenovo
-PRODUCT_MODEL := One Hyper
+PRODUCT_MODEL := Moto One Hyper
 
 TARGET_DEVICE := MotoOneHyper
 PRODUCT_SYSTEM_NAME := MotoOneHyper
 
-VENDOR_RELEASE := 10/QPF30.104/b456f:user/release-keys
+VENDOR_RELEASE := 10/QPF30.103-21-1/3932d:user/release-keys
 BUILD_FINGERPRINT := motorola/def_retail/def:$(VENDOR_RELEASE)
 OMNI_BUILD_FINGERPRINT := motorola/def_retail/def:$(VENDOR_RELEASE)
-OMNI_PRIVATE_BUILD_DESC := "'def_retail-user 10 QPF30.104 b456f release-keys'"
+OMNI_PRIVATE_BUILD_DESC := "'def_retail-user 10 QPF30.103-21-1 3932d release-keys'"
 
 PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-11-01
 

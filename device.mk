@@ -97,9 +97,8 @@ PRODUCT_AAPT_CONFIG := xxxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 PRODUCT_CHARACTERISTICS := nosdcard
 
-# Lights & Health
+# Lights
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.def \
     android.hardware.light@2.0-service.def
 
 # Camera

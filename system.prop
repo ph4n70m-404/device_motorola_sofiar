@@ -89,6 +89,15 @@ av.offload.enable=true
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
 
+# Bluetooth
+#system prop for Bluetooth SOC type
+vendor.bluetooth.soc=cherokee
+
+persist.vendor.btstack.enable.splita2dp=true
+persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
+persist.bluetooth.a2dp_offload.disabled=false
+persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
+
 # system prop for NFC DT
 ro.nfc.port=I2C
 

@@ -17,9 +17,8 @@ DEVICE_PROVISIONED=1
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 
-#ro.hdmi.enable=true
-#persist.speaker.prot.enable=false
 qcom.hw.aac.encoder=true
+
 #
 # system props for the cne module
 #
@@ -34,7 +33,6 @@ media.stagefright.enable-fma2dp=true
 media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
-mm.enable.smoothstreaming=true
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
 #13631487 is decimal sum of supported codecs in AAL
@@ -51,9 +49,6 @@ persist.vendor.data.mode=concurrent
 #system props for time-services
 persist.timed.enable=true
 
-# system property for maximum number of HFP client connections
-#bt.max.hfpclient.connections=1
-
 #
 # System props for telephony
 # System prop to turn on CdmaLTEPhone always
@@ -62,16 +57,6 @@ telephony.lteOnCdmaDevice=1
 #Simulate sdcard on /data/media
 #
 persist.fuse_sdcard=true
-
-#system prop for Bluetooth SOC type
-vendor.bluetooth.soc=cherokee
-# ro.bluetooth.library_name=libbluetooth_qti.so
-persist.vendor.btstack.enable.splita2dp=true
-persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
-
-#system prop for wipower support
-#ro.bluetooth.emb_wp_mode=true
-#ro.bluetooth.wipower=true
 
 #
 #snapdragon value add features
@@ -88,7 +73,7 @@ persist.audio.fluence.speaker=true
 persist.data.df.dev_name=rmnet_usb0
 
 #property to enable user to access Google WFD settings
-#persist.debug.wfd.enable=1
+persist.debug.wfd.enable=1
 ##property to choose between virtual/external wfd display
 persist.sys.wfd.virtual=0
 
@@ -143,17 +128,7 @@ ro.camera.cfa.packagelist=com.motorola.coresettingsext,com.motorola.camera2,com.
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
-ro.lenovo.single_hand=1
 ril.subscription.types=RUIM
-vendor.mm.enable.qcom_parser=33559074
-persist.audio.qti.flac.decoder=true
-persist.audio.endcall.delay=250
-audio.offload.disable=false
-audio.deep_buffer.media=true
-audio.offload.video=false
-audio.offload.min.duration.secs=60
-audio.offload.gapless.enabled=false
-persist.sys.bootupvolume=5
 ro.mot.security.enable=true
 ro.mot.build.customerid=retail
 ro.mot.build.version.sdk_int=30

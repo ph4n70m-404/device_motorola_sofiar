@@ -22,3 +22,6 @@
 /sys/devices/platform/soc/soc\:moto_aw8646_support/aw8646/control/(/.*)?		u:object_r:sysfs_popup:s0
 /sys/devices/platform/soc/88c000.i2c/i2c-2/2-000c/mxm1120_top/control/(/.*)?		u:object_r:sysfs_popup:s0
 /sys/devices/platform/soc/88c000.i2c/i2c-2/2-000f/mxm1120_bottom/control/(/.*)?		u:object_r:sysfs_popup:s0
+
+# MotoActions
+/sys/homebutton(/.*)?                                    u:object_r:sysfs_homebutton:s0

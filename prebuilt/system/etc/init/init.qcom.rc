@@ -24,5 +24,11 @@ on boot
     chown system system /sys/homebutton/key_screenoff_left
     chown system system /sys/homebutton/key_screenoff_right
 
+    # TS Gestures perms
+   chown system system /sys/class/sensors/dt-gesture/enable
+   chown system system /sys/class/sensors/dt-gesture/enable_wakeup
+   chmod 0664 /sys/class/sensors/dt-gesture/enable
+   chmod 0664 /sys/class/sensors/dt-gesture/enable_wakeup
+
 service vendor.mot.light-hal-1-0 /system/bin/true
     disabled

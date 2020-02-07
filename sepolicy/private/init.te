@@ -6,3 +6,9 @@ allow init sysfs_graphics:file rw_file_perms;
 #allow init vendor_file:dir { create rmdir };
 
 allow init vendor_overlay_file:file mounton;
+allow init vendor_configs_file:file mounton;
+allow init vendor_file:file mounton;
+allow init sysfs_homebutton:file setattr;
+# allow init sysfs_input:file setattr;
+allow init sysfs_dm:file setattr;
+

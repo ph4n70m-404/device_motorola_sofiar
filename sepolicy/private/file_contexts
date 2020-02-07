@@ -25,4 +25,4 @@
 
 # MotoActions
 /sys/homebutton(/.*)?                                    u:object_r:sysfs_homebutton:s0
-/sys/class/sensors/dt-gesture(/.*)?                                    u:object_r:sysfs_sensors:s0
+/sys/class/sensors/dt-gesture(/.*)?                                    u:object_r:sysfs_homebutton:s0

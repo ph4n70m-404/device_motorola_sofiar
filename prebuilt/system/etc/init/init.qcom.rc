@@ -1,5 +1,6 @@
 on init
     mount none /dev/null /vendor/overlay/TelephonyResCommon.apk bind
+    mount none /dev/null /vendor/bin/mbm_spy bind
     mount none /dev/null /vendor/overlay/framework-res__auto_generated_rro_vendor.apk bind
     mount none /dev/null /vendor/lib/hw/lights.sm6150.so bind
     mount none /dev/null /vendor/lib64/hw/lights.sm6150.so bind
@@ -31,4 +32,7 @@ on boot
    chmod 0664 /sys/class/sensors/dt-gesture/enable_wakeup
 
 service vendor.mot.light-hal-1-0 /system/bin/true
+    disabled
+
+service vendor.mbm_spy /system/bin/true
     disabled

@@ -23,17 +23,17 @@
         android:title="@string/tap_to_wake"
         android:summary="@string/tap_to_wake_summary" />
 
-    <SwitchPreference
+    <!--<SwitchPreference
         android:key="haptic_feedback"
         android:title="@string/haptic_feedback"
-        android:summary="@string/haptic_feedback_summary" />
+        android:summary="@string/haptic_feedback_summary" /> -->
 
     <SwitchPreference
         android:key="proximity_sensor"
         android:title="@string/allow_proximity_sensor_title"
         android:summary="@string/allow_proximity_sensor_summary" />
 
-    <ListPreference
+    <!-- <ListPreference
         android:title="@string/screen_off_gestures_swipe_left_title"
         android:summary="%s"
         android:dialogTitle="@string/screen_off_gestures_swipe_left_dlg_title"
@@ -67,6 +67,6 @@
         android:key="screen_off_gestures_swipe_down"
         android:defaultValue="0"
         android:entries="@array/screen_off_listArray"
-        android:entryValues="@array/screen_off_listValues" />
+        android:entryValues="@array/screen_off_listValues" /> -->
 
 </PreferenceScreen>

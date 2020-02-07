@@ -29,6 +29,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -103,10 +104,19 @@ public class KeyHandler implements DeviceKeyHandler {
     private boolean mProximityWakeSupported;
     private ISearchManager mSearchManagerService;
     private Handler mHandler;
+    private Handler mSettingsHandler = new Handler();
     private int fpTapCounts = 0;
     private boolean fpTapPending = false;
     private boolean screenOffGesturePending = false;
     private boolean fpGesturePending = false;
+    private SettingsObserver mSettingsObserver;
+    private static final String DT2W_CONTROL_PATH = "/sys/class/sensors/dt-gesture/enable";
+    private static final String DT2W_WAKEUP_PATH = "/sys/class/sensors/dt-gesture/enable";
+    private boolean mUseProxiCheck;
+    private boolean mDoubleTapToWake;
+    private boolean mAODEnabled;
+    private boolean mProxyIsNear;
+
     private Runnable doubleTapRunnable = new Runnable() {
         public void run() {
             int action = 0;
@@ -138,8 +148,76 @@ public class KeyHandler implements DeviceKeyHandler {
         }
     };
 
+    private SensorEventListener mProximitySensor = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            if (mAODEnabled) {
+                mProxyIsNear = event.values[0] < event.sensor.getMaximumRange();
+            } else {
+                mProxyIsNear = event.values[0] == 1;
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        }
+    };
+
+    private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED),
+                    false, this);
+            mContext.getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.DOUBLE_TAP_TO_WAKE),
+                    false, this);
+            mContext.getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.DOZE_ALWAYS_ON),
+                    false, this);
+            update();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            update();
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            update();
+        }
+
+        public void update() {
+            mUseProxiCheck = Settings.System.getIntForUser(
+                    mContext.getContentResolver(), Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, 1,
+                    UserHandle.USER_CURRENT) == 1;
+            mDoubleTapToWake = Settings.Secure.getIntForUser(
+                    mContext.getContentResolver(), Settings.Secure.DOUBLE_TAP_TO_WAKE, 0,
+                    UserHandle.USER_CURRENT) == 1;
+            mAODEnabled = Settings.Secure.getIntForUser(
+                    mContext.getContentResolver(), Settings.Secure.DOZE_ALWAYS_ON, 1,
+                    UserHandle.USER_CURRENT) == 1;
+            updateDoubleTapToWake();
+        }
+    }
+
+    private void updateDoubleTapToWake() {
+        Log.i(TAG, "udateDoubleTapToWake " + mDoubleTapToWake);
+        if (FileUtils.isFileReadable(DT2W_CONTROL_PATH)) {
+            FileUtils.writeLine(DT2W_CONTROL_PATH, mDoubleTapToWake ? "1" : "0");
+            FileUtils.writeLine(DT2W_WAKEUP_PATH, mDoubleTapToWake ? "1" : "0");
+        }
+    }
+
     public KeyHandler(Context context) {
         mContext = context;
+
+        mSettingsObserver = new SettingsObserver(mSettingsHandler);
+        mSettingsObserver.observe();
 
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         mScreenOffGesturesHandler = new ScreenOffGesturesHandler();
@@ -149,17 +227,6 @@ public class KeyHandler implements DeviceKeyHandler {
                 "GestureWakeLock");
 
         final Resources resources = mContext.getResources();
-        /*mProximityTimeOut = resources.getInteger(
-                com.android.internal.R.integer.config_proximityCheckTimeout);
-        mProximityWakeSupported = resources.getBoolean(
-                com.android.internal.R.bool.config_proximityCheckOnWake);
-
-        if (mProximityWakeSupported) {
-            mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-            mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-            mProximityWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-                    "ProximityWakeLock");
-        }*/
 
         mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         if (mVibrator == null || !mVibrator.hasVibrator()) {
@@ -426,14 +493,6 @@ public class KeyHandler implements DeviceKeyHandler {
         return !FileUtils.readOneLine(getFPNodeBasedOnScreenState(FP_HAPTIC_NODE)).equals("0");
     }
 
-    private boolean isProximityEnabledOnScreenOffGesturesFP() {
-        return !FileUtils.readOneLine(getFPNodeBasedOnScreenState(FP_PROXIMITY_CHECK_SCREENOFF_NODE)).equals("0");
-    }
-
-    private boolean isProximityEnabledOnScreenOffGestures() {
-        return Settings.System.getInt(mContext.getContentResolver(), KEY_GESTURE_ENABLE_PROXIMITY_SENSOR, 1) != 0;
-    }
-
     private String getFPNodeBasedOnScreenState(String node) {
         if (mPowerManager.isScreenOn()) {
             return node;
@@ -543,6 +602,10 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     public boolean isDisabledKeyEvent(KeyEvent event) {
+        if (mProxyIsNear) {
+            if (DEBUG) Log.i(TAG, "isDisabledKeyEvent: blocked by proxi sensor - scanCode=" + event.getScanCode());
+            return true;
+        }
         return false;
     }
 
@@ -735,48 +798,8 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     private void processFPScreenOffScancode(int scanCode) {
-        if (isProximityEnabledOnScreenOffGesturesFP() && !mFPScreenOffGesturesHandler.hasMessages(FP_ACTION_REQUEST)) {
-            Message msg = mFPScreenOffGesturesHandler.obtainMessage(FP_ACTION_REQUEST);
-            msg.arg1 = scanCode;
-            boolean defaultProximity = false;
-            boolean proximityWakeCheckEnabled = false;
-            if (mProximityWakeSupported && proximityWakeCheckEnabled && mProximitySensor != null) {
-                mFPScreenOffGesturesHandler.sendMessageDelayed(msg, mProximityTimeOut);
-                registerFPScreenOffListener(scanCode);
-            } else {
-                mFPScreenOffGesturesHandler.sendMessage(msg);
-            }
-        }else{
             processFPScancode(scanCode);
-        }
     }
-
-    private void registerFPScreenOffListener(final int scanCode) {
-        mProximityWakeLock.acquire();
-        mSensorManager.registerListener(new SensorEventListener() {
-            @Override
-            public void onSensorChanged(SensorEvent event) {
-                mProximityWakeLock.release();
-                mSensorManager.unregisterListener(this);
-                if (!mFPScreenOffGesturesHandler.hasMessages(FP_ACTION_REQUEST)) {
-                    // The sensor took to long, ignoring.
-                    return;
-                }
-                mFPScreenOffGesturesHandler.removeMessages(FP_ACTION_REQUEST);
-                if (event.values[0] == mProximitySensor.getMaximumRange()) {
-                    Message msg = mFPScreenOffGesturesHandler.obtainMessage(FP_ACTION_REQUEST);
-                    msg.arg1 = scanCode;
-                    mFPScreenOffGesturesHandler.sendMessage(msg);
-                }
-            }
-
-            @Override
-            public void onAccuracyChanged(Sensor sensor, int accuracy) {
-            }
-
-        }, mProximitySensor, SensorManager.SENSOR_DELAY_FASTEST);
-    }
-
 
     private void resetScreenOffGestureDelay() {
         screenOffGesturePending = false;
@@ -789,27 +812,7 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     private void handleScreenOffScancode(int scanCode) {
-        if (screenOffGesturePending) {
-            return;
-        } else {
-            resetScreenOffGestureDelay();
-            screenOffGesturePending = true;
-            mHandler.postDelayed(screenOffGestureRunnable, 500);
-        }
-        if (isProximityEnabledOnScreenOffGestures() && !mScreenOffGesturesHandler.hasMessages(GESTURE_REQUEST)) {
-            Message msg = mScreenOffGesturesHandler.obtainMessage(GESTURE_REQUEST);
-            msg.arg1 = scanCode;
-            boolean defaultProximity = false;
-            boolean proximityWakeCheckEnabled = false;
-            if (mProximityWakeSupported && proximityWakeCheckEnabled && mProximitySensor != null) {
-                mScreenOffGesturesHandler.sendMessageDelayed(msg, mProximityTimeOut);
-                registerScreenOffGesturesListener(scanCode);
-            } else {
-                mScreenOffGesturesHandler.sendMessage(msg);
-            }
-        }else{
             processScreenOffScancode(scanCode);
-        }
     }
 
     private void processScreenOffScancode(int scanCode) {
@@ -838,32 +841,6 @@ public class KeyHandler implements DeviceKeyHandler {
         if (isActionSupported) {
             fireScreenOffAction(action);
         }
-    }
-
-    private void registerScreenOffGesturesListener(final int scanCode) {
-        mProximityWakeLock.acquire();
-        mSensorManager.registerListener(new SensorEventListener() {
-            @Override
-            public void onSensorChanged(SensorEvent event) {
-                mProximityWakeLock.release();
-                mSensorManager.unregisterListener(this);
-                if (!mScreenOffGesturesHandler.hasMessages(GESTURE_REQUEST)) {
-                    // The sensor took to long, ignoring.
-                    return;
-                }
-                mScreenOffGesturesHandler.removeMessages(GESTURE_REQUEST);
-                if (event.values[0] == mProximitySensor.getMaximumRange()) {
-                    Message msg = mScreenOffGesturesHandler.obtainMessage(GESTURE_REQUEST);
-                    msg.arg1 = scanCode;
-                    mScreenOffGesturesHandler.sendMessage(msg);
-                }
-            }
-
-            @Override
-            public void onAccuracyChanged(Sensor sensor, int accuracy) {
-            }
-
-        }, mProximitySensor, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     private void fireScreenOffAction(int action) {

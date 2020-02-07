@@ -23,14 +23,10 @@ import androidx.preference.SwitchPreference;
 import androidx.preference.PreferenceFragment;
 import android.view.MenuItem;
 
-import static android.provider.Settings.Secure.DOUBLE_TAP_TO_WAKE;
-import static com.moto.actions.actions.Constants.KEY_GESTURE_ENABLE_HAPTIC_FEEDBACK;
-import static com.moto.actions.actions.Constants.KEY_GESTURE_ENABLE_PROXIMITY_SENSOR;
-
 public class ScreenOffGestureSettingsFragment extends PreferenceFragment {
 
     private SwitchPreference mTapToWake;
-    private SwitchPreference mHapticFeedback;
+    //private SwitchPreference mHapticFeedback;
     private SwitchPreference mProximitySensor;
 
     @Override
@@ -43,17 +39,17 @@ public class ScreenOffGestureSettingsFragment extends PreferenceFragment {
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.screen_off_gesture_panel);
         mTapToWake = (SwitchPreference) findPreference("tap_to_wake");
-        mTapToWake.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(), DOUBLE_TAP_TO_WAKE, 0) == 1);
+        mTapToWake.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(), Settings.Secure.DOUBLE_TAP_TO_WAKE, 0) == 1);
         mTapToWake.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object objValue) {
                 boolean value = (Boolean) objValue;
-                Settings.Secure.putInt(getActivity().getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
+                Settings.Secure.putInt(getActivity().getContentResolver(), Settings.Secure.DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
                 return true;
             }
         });
 
-        mHapticFeedback = (SwitchPreference) findPreference("haptic_feedback");
+        /*mHapticFeedback = (SwitchPreference) findPreference("haptic_feedback");
         mHapticFeedback.setChecked(Settings.System.getInt(getActivity().getContentResolver(), KEY_GESTURE_ENABLE_HAPTIC_FEEDBACK, 1) == 1);
         mHapticFeedback.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
@@ -62,15 +58,15 @@ public class ScreenOffGestureSettingsFragment extends PreferenceFragment {
                 Settings.System.putInt(getActivity().getContentResolver(), KEY_GESTURE_ENABLE_HAPTIC_FEEDBACK, value ? 1 : 0);
                 return true;
             }
-        });
+        });*/
 
         mProximitySensor = (SwitchPreference) findPreference("proximity_sensor");
-        mProximitySensor.setChecked(Settings.System.getInt(getActivity().getContentResolver(), KEY_GESTURE_ENABLE_PROXIMITY_SENSOR, 1) == 1);
+        mProximitySensor.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, 1) == 1);
         mProximitySensor.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object objValue) {
                 boolean value = (Boolean) objValue;
-                Settings.System.putInt(getActivity().getContentResolver(), KEY_GESTURE_ENABLE_PROXIMITY_SENSOR, value ? 1 : 0);
+                Settings.System.putInt(getActivity().getContentResolver(), Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, value ? 1 : 0);
                 return true;
             }
         });

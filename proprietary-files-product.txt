@@ -389,3 +389,5 @@ product/etc/permissions/privapp-permissions-com.motorola.vzw.pco.extensions.pcor
 
 -product/priv-app/atfwd/atfwd.apk
 
+-product/priv-app/daxService/daxService.apk
+

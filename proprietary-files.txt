@@ -4,8 +4,6 @@ lib64/libaptXHD_encoder.so
 bin/qvrservice
 bin/wfdservice
 etc/init/wfdservice.rc
-etc/bluetooth/bt_profile.conf
-etc/bluetooth/interop_database.conf
 etc/permissions/audiosphere.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/com.qualcomm.qti.imscmservice.xml
@@ -279,7 +277,7 @@ lib/libqvr_cdsp_driver_stub.so
 lib64/libbtconfigstore.so
 
 #-framework/WfdCommon.jar
--priv-app/com.qualcomm.location/com.qualcomm.location.apk|41df089592da6bd23bfc19eeec49f308ba3796a7
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk
 
 -app/MotoSignatureApp/MotoSignatureApp.apk
 etc/NT36xxx_MP_Setting_Criteria_6016.csv
@@ -350,3 +348,6 @@ etc/permissions/com.motorola.frameworks.core.addon.xml
 -framework/com.motorola.frameworks.core.addon.jar
 etc/permissions/com.qti.snapdragon.sdk.display.xml
 -framework/com.qti.snapdragon.sdk.display.jar
+
+-app/MotoDolbyV3/MotoDolbyV3.apk
+

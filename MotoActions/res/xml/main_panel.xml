@@ -48,7 +48,7 @@
                 android:targetClass="com.moto.actions.FPGestureSettingsActivity" />
     </Preference>
 
-    <Preference
+    <!-- <Preference
         android:key="screen_off_gestures"
         android:title="@string/screen_off_gestures_title"
         android:summary="@string/screen_off_gestures_manage_summary"
@@ -56,6 +56,6 @@
             <intent
                 android:targetPackage="com.moto.actions"
                 android:targetClass="com.moto.actions.ScreenOffGestureSettingsActivity" />
-    </Preference>
+    </Preference> -->
 
 </PreferenceScreen>

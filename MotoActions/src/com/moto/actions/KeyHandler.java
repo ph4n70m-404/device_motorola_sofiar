@@ -98,7 +98,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private CameraManager mCameraManager;
     private String mRearCameraId;
     private boolean mTorchEnabled;
-    private Sensor mProximitySensor;
     private Vibrator mVibrator;
     private int mProximityTimeOut;
     private boolean mProximityWakeSupported;

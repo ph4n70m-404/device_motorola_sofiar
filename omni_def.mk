@@ -91,7 +91,7 @@ PRODUCT_NAME := omni_def
 PRODUCT_DEVICE := def
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
-PRODUCT_MODEL := moto one hyper
+PRODUCT_MODEL := motorola one hyper
 
 TARGET_DEVICE := MotoOneHyper
 PRODUCT_SYSTEM_NAME := MotoOneHyper
@@ -101,7 +101,7 @@ BUILD_FINGERPRINT := motorola/def_retail/def:$(VENDOR_RELEASE)
 OMNI_BUILD_FINGERPRINT := motorola/def_retail/def:$(VENDOR_RELEASE)
 OMNI_PRIVATE_BUILD_DESC := "'def_retail-user 10 QPF30.103-21-1 3932d release-keys'"
 
-PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-11-01
+PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-10-05
 
 TARGET_VENDOR := motorola
 

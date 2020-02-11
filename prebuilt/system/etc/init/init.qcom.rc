@@ -1,6 +1,5 @@
 on init
     mount none /dev/null /vendor/overlay/TelephonyResCommon.apk bind
-    mount none /dev/null /vendor/bin/mbm_spy bind
     mount none /dev/null /vendor/overlay/framework-res__auto_generated_rro_vendor.apk bind
     mount none /dev/null /vendor/lib/hw/lights.sm6150.so bind
     mount none /dev/null /vendor/lib64/hw/lights.sm6150.so bind
@@ -36,3 +35,5 @@ service vendor.mot.light-hal-1-0 /system/bin/true
 
 service vendor.mbm_spy /system/bin/true
     disabled
+    oneshot
+    override

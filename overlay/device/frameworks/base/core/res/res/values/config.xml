@@ -31,8 +31,8 @@
     <color name="config_defaultNotificationColor">#ffff0000</color>
     <bool name="config_intrusiveNotificationLed">true</bool>
     <bool name="config_intrusiveBatteryLed">true</bool>
-    <bool name="config_multiColorBatteryLed">true</bool>
-    <bool name="config_multiColorNotificationLed">true</bool>
+    <bool name="config_multiColorBatteryLed">false</bool>
+    <bool name="config_multiColorNotificationLed">false</bool>
     <dimen name="config_dialogCornerRadius">6dp</dimen>
     <!-- <dimen name="config_dialogCornerRadius">64px</dimen>  default: 2dp -->
     <!-- <dimen name="config_buttonCornerRadius">64px</dimen>  default: 2dp -->
@@ -91,10 +91,10 @@
     <bool name="config_enableNetworkLocationOverlay" translatable="false">true</bool>
     <bool name="config_enableFusedLocationOverlay" translatable="false">true</bool>
 
-    <!-- Enable overlay for all location components. -->
+    <!-- Enable overlay for all location components.
     <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
     <string name="config_fusedLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
-    <string name="config_comboNetworkLocationProvider" translatable="false">com.qualcomm.location</string>
+    <string name="config_comboNetworkLocationProvider" translatable="false">com.qualcomm.location</string> -->
     <!-- Values for GPS configuration -->
     <string-array translatable="false" name="config_gpsParameters">
         <item>SUPL_HOST=supl.google.com</item>

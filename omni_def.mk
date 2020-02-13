@@ -21,7 +21,8 @@
 
 VENDOR_EXCEPTION_PATHS := omni \
     motorola \
-    gapps
+    gapps \
+    microg
 
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
@@ -107,4 +108,13 @@ TARGET_VENDOR := motorola
 
 $(call inherit-product, vendor/motorola/def/def-vendor.mk)
 
+ifeq ($(WITH_GAPPS),true)
+# https://gitlab.com/darkobas/android_vendor_gapps
 $(call inherit-product, vendor/gapps/config.mk)
+endif
+
+ifeq ($(WITH_MICROG),true)
+# https://github.com/boulzordev/android_prebuilts_prebuiltapks
+$(call inherit-product, vendor/microg/microg.mk)
+endif
+

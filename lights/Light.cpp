@@ -33,12 +33,13 @@ namespace implementation {
 
 #define LEDS            "/sys/class/leds/"
 
-#define LCD_LED         LEDS "lcd-backlight/"
+#define LCD_LED         "/sys/class/backlight/panel0-backlight/brightness"
 #define RED_LED         LEDS "red_moto/"
 #define GREEN_LED       LEDS "green_moto/"
 #define BLUE_LED        LEDS "blue_moto/"
 
-#define BLINK           "breath"
+#define BREAH           "breath"
+#define BREAH_PATTERN   "breath_pattern"
 #define BRIGHTNESS      "brightness"
 
 /*
@@ -64,13 +65,14 @@ static T get(const std::string& path, const T& def) {
 
 static void handleBacklight(const LightState& state) {
     int brightness = Light::rgbToBrightness(state);
-    set("/sys/class/backlight/panel0-backlight/brightness", brightness);
+    set(LCD_LED, brightness);
 }
 
 /*
- * Get blink value as color + pauseHi + pauseLo
+ * Get breath value as color + pauseHi + pauseLo
+ * rise_time hold_time fall_time off_time
  */
-static std::string getBlinkValue(uint32_t pauseHi,
+static std::string getBreathPatternValue(uint32_t pauseHi,
     uint32_t pauseLo) {
 
     char buffer[40];
@@ -81,30 +83,19 @@ static std::string getBlinkValue(uint32_t pauseHi,
 }
 
 static void handleBattery(const LightState& state) {
-    LOG(INFO) << base::StringPrintf(
-        "handleBattery: brighness=%d",
-        Light::rgbToBrightness(state));
-
     int brightness = Light::rgbToBrightness(state);
-    auto makeLedPath = [](const std::string& led, const std::string& op) -> std::string {
-        return "/sys/class/leds/" + led + "_moto/" + op;
-    };
 
-    set(makeLedPath("red", "breath"), brightness == 0 ? 0 : 1);
-    set(makeLedPath("red", "brightness"), brightness);
+    set(RED_LED BREAH, brightness == 0 ? 0 : 1);
+    set(RED_LED BRIGHTNESS, brightness);
 
-    set(makeLedPath("green", "breath"), brightness == 0 ? 0 : 1);
-    set(makeLedPath("green", "brightness"), brightness);
+    set(GREEN_LED BREAH, brightness == 0 ? 0 : 1);
+    set(GREEN_LED BRIGHTNESS, brightness);
 
-    set(makeLedPath("blue", "breath"), brightness == 0 ? 0 : 1);
-    set(makeLedPath("blue", "brightness"), brightness);
+    set(BLUE_LED BREAH, brightness == 0 ? 0 : 1);
+    set(BLUE_LED BRIGHTNESS, brightness);
 }
 
 static void handleNotification(const LightState& state) {
-    LOG(INFO) << base::StringPrintf(
-        "handleNotification: brighness=%d",
-        Light::rgbToBrightness(state));
-
     uint32_t redBrightness, greenBrightness, blueBrightness, brightness;
 
     /*
@@ -125,53 +116,49 @@ static void handleNotification(const LightState& state) {
         blueBrightness = (blueBrightness * brightness) / 0xFF;
     }
 
-    //int brightness = Light::rgbToBrightness(state);
-    auto makeLedPath = [](const std::string& led, const std::string& op) -> std::string {
-        return "/sys/class/leds/" + led + "_moto/" + op;
-    };
 
-    /* Disable blinking. */
-    set(makeLedPath("red", "breath"), 0);
-    set(makeLedPath("red", "brightness"), 0);
-    set(makeLedPath("green", "breath"), 0);
-    set(makeLedPath("green", "brightness"), 0);
-    set(makeLedPath("blue", "breath"), 0);
-    set(makeLedPath("blue", "brightness"), 0);
+    /* Disable breathing. */
+    set(RED_LED BREAH, 0);
+    set(RED_LED BRIGHTNESS, 0);
+    set(GREEN_LED BREAH, 0);
+    set(GREEN_LED BRIGHTNESS, 0);
+    set(BLUE_LED BREAH, 0);
+    set(BLUE_LED BRIGHTNESS, 0);
 
     if (state.flashMode == Flash::TIMED) {
         int32_t pauseHi = state.flashOnMs;
         int32_t pauseLo = state.flashOffMs;
-        int32_t blink = 0;
+        int32_t breath = 0;
 
         if (pauseHi > 0 && pauseLo > 0) {
-            blink = 1;
+            breath = 1;
         }
 
-        /* Enable blinking if times are higher than 0. */
-        if (blink){
+        /* Enable breathing if times are higher than 0. */
+        if (breath){
             if (redBrightness > 0 || greenBrightness > 0 || blueBrightness > 0) {
-                set(makeLedPath("blue", "brightness"), 255);
-                set(makeLedPath("red", "brightness"), 255);
-                set(makeLedPath("green", "brightness"), 255);
+                set(RED_LED BREAH_PATTERN, getBreathPatternValue(pauseHi, pauseLo));
+                set(RED_LED BREAH, 1);
+                set(RED_LED BRIGHTNESS, 255);
 
-                set(makeLedPath("blue", "breath"), 1);
-                set(makeLedPath("red", "breath"), 1);
-                set(makeLedPath("green", "breath"), 1);
+                set(GREEN_LED BREAH_PATTERN, getBreathPatternValue(pauseHi, pauseLo));
+                set(GREEN_LED BREAH, 1);
+                set(GREEN_LED BRIGHTNESS, 255);
 
-                set(makeLedPath("blue", "breath_pattern"), getBlinkValue(pauseHi, pauseLo));
-                set(makeLedPath("blue", "breath_pattern"), getBlinkValue(pauseHi, pauseLo));
-                set(makeLedPath("green", "breath_pattern"), getBlinkValue(pauseHi, pauseLo));
+                set(BLUE_LED BREAH_PATTERN, getBreathPatternValue(pauseHi, pauseLo));
+                set(BLUE_LED BREAH, 1);
+                set(BLUE_LED BRIGHTNESS, 255);
             }
         }
     } else {
         if (redBrightness > 0 || greenBrightness > 0 || blueBrightness > 0) {
-                set(makeLedPath("blue", "brightness"), 255);
-                set(makeLedPath("red", "brightness"), 255);
-                set(makeLedPath("green", "brightness"), 255);
+                set(RED_LED BRIGHTNESS, 255);
+                set(GREEN_LED BRIGHTNESS, 255);
+                set(BLUE_LED BRIGHTNESS, 255);
         } else {
-                set(makeLedPath("blue", "brightness"), 0);
-                set(makeLedPath("red", "brightness"), 0);
-                set(makeLedPath("green", "brightness"), 0);
+                set(RED_LED BRIGHTNESS, 0);
+                set(GREEN_LED BRIGHTNESS, 0);
+                set(BLUE_LED BRIGHTNESS, 0);
         }
     }
 

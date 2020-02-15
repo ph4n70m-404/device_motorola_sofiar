@@ -23,7 +23,7 @@ DEVICE_PATH := device/motorola/def
 include $(DEVICE_PATH)/BoardConfigGsi.mk
 
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_RECOVERY := true
+TARGET_NO_RECOVERY := false
 
 TARGET_OTA_ASSERT_DEVICE := MotoOneHyper
 

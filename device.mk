@@ -24,13 +24,11 @@ TARGET_FLATTEN_APEX := false
 
 # Prebuilt
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/product,product) \
-    $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/root,recovery/root) \
-    $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/permissions,product/etc/permissions) \
-    $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/system,system) \
-    $(call find-copy-subdir-files,*,device/motorola/def/prebuilt/permissions,system/etc/permissions)
-
-PRODUCT_PACKAGES += fstab.qcom
+    $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/product,product) \
+    $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/root,recovery/root) \
+    $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/permissions,product/etc/permissions) \
+    $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/system,system) \
+    $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/permissions,system/etc/permissions)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.build.version.all_codenames=$(PLATFORM_VERSION_ALL_CODENAMES) \
@@ -67,7 +65,7 @@ PRODUCT_PACKAGES_DEBUG += \
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl.recovery \
-    bootctrl.sm6150.recovery \
+    bootctrl.trinket.recovery \
     fastbootd
 
 PRODUCT_PACKAGES_DEBUG += \
@@ -95,10 +93,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := xxxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 PRODUCT_CHARACTERISTICS := nosdcard
-
-# Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.def
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -167,7 +161,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.wifi@1.0
-#    android.hardware.vibrator@1.2-service.oneplus7pro
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
@@ -181,7 +174,7 @@ PRODUCT_PACKAGES += \
 
 # Video seccomp policy files
 PRODUCT_COPY_FILES += \
-    device/motorola/def/seccomp/codec2.software.ext.policy:$(TARGET_COPY_OUT)/etc/seccomp_policy/codec2.software.ext.policy
+    device/motorola/sofiar/seccomp/codec2.software.ext.policy:$(TARGET_COPY_OUT)/etc/seccomp_policy/codec2.software.ext.policy
 
 # Temporary handling
 #
@@ -189,8 +182,8 @@ PRODUCT_COPY_FILES += \
 # does not exist as they are mutually exclusive.  Once all target's android_filesystem_config.h
 # have been removed, TARGET_FS_CONFIG_GEN should be made unconditional.
 DEVICE_CONFIG_DIR := $(dir $(firstword $(subst ]],, $(word 2, $(subst [[, ,$(_node_import_context))))))
-ifeq ($(wildcard device/motorola/def/android_filesystem_config.h),)
-  TARGET_FS_CONFIG_GEN := device/motorola/def/config.fs
+ifeq ($(wildcard device/motorola/sofiar/android_filesystem_config.h),)
+  TARGET_FS_CONFIG_GEN := device/motorola/sofiar/config.fs
 else
   $(warning **********)
   $(warning TODO: Need to replace legacy $(DEVICE_CONFIG_DIR)android_filesystem_config.h with config.fs)

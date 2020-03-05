@@ -17,7 +17,7 @@
 set -e
 
 VENDOR=motorola
-DEVICE=def
+DEVICE=sofiar
 
 INITIAL_COPYRIGHT_YEAR=2020
 

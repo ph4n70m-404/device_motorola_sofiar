@@ -1,3 +1,4 @@
+ifeq ($(TARGET_DEVICE),sofiar)
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -9,3 +10,5 @@ LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_SRC_FILES := /dev/null
 include $(BUILD_PREBUILT)
+endif
+

@@ -1,7 +1,6 @@
 lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so
 
-bin/qvrservice
 bin/wfdservice
 etc/init/wfdservice.rc
 etc/permissions/audiosphere.xml
@@ -17,7 +16,6 @@ etc/sensors/proto/descriptor.proto
 etc/sensors/proto/mot_camgest.proto
 etc/sensors/proto/mot_chopchop.proto
 etc/sensors/proto/mot_devorient.proto
-etc/sensors/proto/mot_drop.proto
 etc/sensors/proto/mot_flip.proto
 etc/sensors/proto/mot_ftm.proto
 etc/sensors/proto/mot_glance.proto
@@ -115,26 +113,7 @@ lib64/libadsprpc_system.so
 lib64/libmdsprpc_system.so
 lib64/libbluetooth_qti.so
 lib64/libcdsprpc_system.so
-lib64/libchromaflash.so
-lib64/libdualcameraddm.so
 lib64/libFileMux.so
-lib64/libfiltergenerator.so
-lib64/libhazebuster.so
-lib64/libjni_blurbuster.so
-lib64/libjni_chromaflash.so
-lib64/libjni_clearsight.so
-lib64/libjni_dualcamera.so
-lib64/libjni_filtergenerator.so
-lib64/libjni_hazebuster.so
-lib64/libjni_optizoom.so
-#lib64/libjni_panorama.so
-lib64/libjni_seestraight.so
-lib64/libjni_sharpshooter.so
-lib64/libjni_stillmore.so
-#lib64/libjni_trackingfocus.so
-lib64/libjni_trueportrait.so
-lib64/libjni_truescanner_v2.so
-lib64/libjni_ubifocus.so
 lib64/liblocationservice_jni.so
 lib64/libmmosal.so
 lib64/libmmparser_lite.so
@@ -142,23 +121,15 @@ lib64/libmmrtpdecoder.so
 lib64/libmmrtpencoder.so
 lib64/libOmxMux.so
 lib64/libOpenCL_system.so
-lib64/liboptizoom.so
 lib64/libqmi_cci_system.so
 lib64/libqti-at.so
 lib64/libqti-perfd-client_system.so
 lib64/libqti_performance.so
 lib64/libqti-util_system.so
-lib64/libqvrcamera_client.qti.so
-lib64/libqvrservice_client.qti.so
 lib/libqti_vndfwk_detect.so
 lib64/libqti_vndfwk_detect.so
 lib/libqti-iopd-client_system.so
 lib64/libqti-iopd-client_system.so
-lib64/libseemore.so
-lib64/libseestraight.so
-lib64/libtrueportrait.so
-lib64/libtruescanner.so
-lib64/libubifocus.so
 lib64/libvr_amb_engine.so
 lib64/libvraudio_client.qti.so
 lib64/libvraudio.so
@@ -169,25 +140,7 @@ lib/libadsprpc_system.so
 lib/libmdsprpc_system.so
 lib/libbluetooth_qti.so
 lib/libcdsprpc_system.so
-lib/libchromaflash.so
-lib/libdualcameraddm.so
 lib/libFileMux.so
-lib/libfiltergenerator.so
-lib/libhazebuster.so
-lib/libjni_blurbuster.so
-lib/libjni_chromaflash.so
-lib/libjni_dualcamera.so
-lib/libjni_filtergenerator.so
-lib/libjni_hazebuster.so
-lib/libjni_optizoom.so
-#lib/libjni_panorama.so
-lib/libjni_seestraight.so
-lib/libjni_sharpshooter.so
-lib/libjni_stillmore.so
-#lib/libjni_trackingfocus.so
-lib/libjni_trueportrait.so
-lib/libjni_truescanner_v2.so
-lib/libjni_ubifocus.so
 lib/liblocationservice_jni.so
 lib/libmmosal.so
 lib/libmmparser_lite.so
@@ -195,29 +148,17 @@ lib/libmmrtpdecoder.so
 lib/libmmrtpencoder.so
 lib/libOmxMux.so
 lib/libOpenCL_system.so
-lib/liboptizoom.so
 lib/libqmi_cci_system.so
 lib/libqti-at.so
 lib/libqti-perfd-client_system.so
 lib/libqti_performance.so
 lib/libqti-util_system.so
-lib/libqvrcamera_client.qti.so
-lib/libqvrservice_client.qti.so
-lib/libqvrservice.so
-lib/libseemore.so
-lib/libseestraight.so
-lib/libtrueportrait.so
-lib/libtruescanner.so
-lib/libubifocus.so
 lib/libvr_amb_engine.so
 lib/libvraudio_client.qti.so
 lib/libvraudio.so
 lib/libvr_object_engine.so
 lib/libvr_sam_wrapper.so
 lib/libxt_native.so
--priv-app/HotwordEnrollmentOKGoogleCS47L35/HotwordEnrollmentOKGoogleCS47L35.apk
--priv-app/HotwordEnrollmentTGoogleCS47L35/HotwordEnrollmentTGoogleCS47L35.apk
--priv-app/HotwordEnrollmentXGoogleCS47L35/HotwordEnrollmentXGoogleCS47L35.apk
 
 etc/voicemail-conf.xml
 
@@ -258,19 +199,9 @@ lib/libwfduibcsinkinterface.so
 lib/libwfduibcsrc.so
 lib/libwfduibcsrcinterface.so
 
-
-etc/qvr/qvrservice_config.txt
-
-lib/rfsa/adsp/libdsp_streamer_qvrcam_receiver.so
 lib/rfsa/adsp/libeye_tracking_dsp_sample_skel.so
-lib/rfsa/adsp/libqvr_cam_dsp_driver_skel.so
-lib/rfsa/adsp/libqvr_dsp_driver_skel.so
 lib/rfsa/adsp/libsns_device_mode_skel.so
 lib/rfsa/adsp/libsns_low_lat_stream_skel.so
-lib/rfsa/adsp/libtracker_6dof_skel.so
-lib/libqvr_cam_cdsp_driver_stub.so
-lib/libqvr_eyetracking_plugin.so
-lib/libqvr_cdsp_driver_stub.so
 
 #-framework/com.nxp.nfc.jar
 
@@ -280,7 +211,7 @@ lib64/libbtconfigstore.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
 
 -app/MotoSignatureApp/MotoSignatureApp.apk
-etc/NT36xxx_MP_Setting_Criteria_6016.csv
+etc/NT36xxx_MP_Setting_Criteria_6017.csv
 etc/cne/Nexus/ATT/ATT_profiles.xml
 etc/cne/Nexus/ROW/ROW_profiles.xml
 etc/cne/Nexus/VZW/VZW_profiles.xml
@@ -291,20 +222,10 @@ etc/permissions/com.motorola.camera2.logan.xml
 etc/permissions/com.motorola.androidx.camera.extensions.xml
 etc/permissions/com.motorola.dolby.dolbyui.features.xml
 etc/permissions/com.motorola.motosignature.xml
-etc/permissions/com.motorola.omadm.service.xml
-etc/permissions/com.motorola.photoeditor.xml
 etc/permissions/deviceowner-configuration-com.motorola.camera2.xml
-etc/permissions/feature-com.uros.software.goodspeed.xml
-etc/permissions/privapp-permissions-com.android.hotwordenrollment.okgoogle.xml
-etc/permissions/privapp-permissions-com.android.hotwordenrollment.tgoogle.xml
-etc/permissions/privapp-permissions-com.android.hotwordenrollment.xgoogle.xml
-etc/permissions/privapp-permissions-com.motorola.att.phone.extensions.xml
-etc/permissions/privapp-permissions-com.motorola.attvowifi.xml
 etc/permissions/privapp-permissions-com.motorola.camera2.xml
 etc/permissions/qti_libpermissions.xml
 etc/permissions/qti_permissions.xml
-etc/thermal-engine-def.conf
-etc/permissions/privapp-permissions-com.motorola.omadm.service.xml
 -framework/com.motorola.androidx.camera.extensions.jar
 -framework/com.motorola.motosignature.jar
 -framework/qcom-moto-telephony-ext.jar
@@ -327,19 +248,10 @@ lib64/motorola.hardware.vibrator@1.0.so
 lib64/vendor.egistec.hardware.fingerprint@2.0.so
 lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so
 etc/permissions/privapp-permissions-com.qualcomm.qcrilmsgtunnel.xml;product/etc/permissions
-lib/libmotocare.so
-lib64/libmotocare.so
-lib64/libdmengine.so
-lib64/libdmjavaplugin.so
-
-lib64/libdolphin.so
-lib/libdolphin.so
 
 lib64/libframeextension.so
 lib/libframeextension.so
 
--priv-app/AttPhoneExt/AttPhoneExt.apk
--priv-app/DMService/DMService.apk
 #-priv-app/MotCamera2/MotCamera2.apk
 usr/idc/uinput-egis.idc
 usr/keylayout/uinput-egis.kl

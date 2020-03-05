@@ -83,30 +83,30 @@ $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/mainline_system_arm64.mk)
 
 # Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/motorola/def/device.mk)
+$(call inherit-product, device/motorola/sofiar/device.mk)
 
 PRODUCT_SHIPPING_API_LEVEL := 29
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := omni_def
-PRODUCT_DEVICE := def
+PRODUCT_NAME := omni_sofiar
+PRODUCT_DEVICE := sofiar
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
-PRODUCT_MODEL := motorola one hyper
+PRODUCT_MODEL := moto g8 power
 
-TARGET_DEVICE := MotoOneHyper
-PRODUCT_SYSTEM_NAME := MotoOneHyper
+TARGET_DEVICE := Moto G8 Power
+PRODUCT_SYSTEM_NAME := Moto G8 Power
 
-VENDOR_RELEASE := 10/QPF30.103-21-1/3932d:user/release-keys
-BUILD_FINGERPRINT := motorola/def_retail/def:$(VENDOR_RELEASE)
-OMNI_BUILD_FINGERPRINT := motorola/def_retail/def:$(VENDOR_RELEASE)
-OMNI_PRIVATE_BUILD_DESC := "'def_retail-user 10 QPF30.103-21-1 3932d release-keys'"
+VENDOR_RELEASE := 10/QPE30.79-25/59f4f:user/release-keys
+BUILD_FINGERPRINT := motorola/sofiar_retail/sofiar:$(VENDOR_RELEASE)
+OMNI_BUILD_FINGERPRINT := motorola/sofiar_retail/def:$(VENDOR_RELEASE)
+OMNI_PRIVATE_BUILD_DESC := "'sofiar_retail-user 10 QPE30.79-25 59f4f release-keys'"
 
-PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-10-05
+PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-12-01
 
 TARGET_VENDOR := motorola
 
-$(call inherit-product, vendor/motorola/def/def-vendor.mk)
+$(call inherit-product, vendor/motorola/sofiar/sofiar-vendor.mk)
 
 ifeq ($(WITH_GAPPS),true)
 # https://gitlab.com/darkobas/android_vendor_gapps

@@ -1,3 +1,4 @@
+ifeq ($(TARGET_DEVICE),sofiar)
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
@@ -28,3 +29,5 @@ include frameworks/base/packages/SettingsLib/common.mk
 include $(BUILD_PACKAGE)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
+endif
+

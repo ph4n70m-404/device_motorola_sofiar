@@ -64,7 +64,8 @@ persist.fuse_sdcard=true
 vendor.bluetooth.soc=cherokee
 persist.vendor.btstack.enable.splita2dp=true
 persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
-persist.vendor.btstack.aac_frm_ctl.enabled=true
+persist.bluetooth.a2dp_offload.disabled=true
+persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 
 #system prop for wipower support
 #ro.bluetooth.emb_wp_mode=true

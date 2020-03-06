@@ -2,6 +2,7 @@ on init
     mount none /dev/null /vendor/overlay/TelephonyResCommon.apk bind
     mount none /dev/null /vendor/overlay/TelephonyResMotCommon.apk bind
     mount none /dev/null /vendor/overlay/framework-res__auto_generated_rro_vendor.apk bind
+    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio_policy_configuration.xml bind
     setprop ro.carrier ${ro.boot.carrier}
     setprop ro.vendor.carrier ${ro.boot.carrier}
 

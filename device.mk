@@ -28,7 +28,8 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/root,recovery/root) \
     $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/permissions,product/etc/permissions) \
     $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/system,system) \
-    $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/permissions,system/etc/permissions)
+    $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/permissions,system/etc/permissions) \
+    $(call find-copy-subdir-files,*,device/motorola/sofiar/prebuilt/ramdisk,ramdisk)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.build.version.all_codenames=$(PLATFORM_VERSION_ALL_CODENAMES) \

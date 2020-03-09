@@ -73,7 +73,7 @@ BOARD_USES_RECOVERY_AS_BOOT := false
 TARGET_BOOTANIMATION_SIZE := 1080p
 AB_OTA_UPDATER := true
 
-DEVICE_PACKAGE_OVERLAYS += device/motorola/def/overlay/device
+DEVICE_PACKAGE_OVERLAYS += device/motorola/sofiar/overlay/device
 DEVICE_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
 
 # Inherit from our custom product configuration
@@ -99,7 +99,7 @@ PRODUCT_SYSTEM_NAME := Moto G8 Power
 
 VENDOR_RELEASE := 10/QPE30.79-25/59f4f:user/release-keys
 BUILD_FINGERPRINT := motorola/sofiar_retail/sofiar:$(VENDOR_RELEASE)
-OMNI_BUILD_FINGERPRINT := motorola/sofiar_retail/def:$(VENDOR_RELEASE)
+OMNI_BUILD_FINGERPRINT := motorola/sofiar_retail/sofiar:$(VENDOR_RELEASE)
 OMNI_PRIVATE_BUILD_DESC := "'sofiar_retail-user 10 QPE30.79-25 59f4f release-keys'"
 
 PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-12-01

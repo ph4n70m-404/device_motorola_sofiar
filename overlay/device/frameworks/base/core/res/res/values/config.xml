@@ -77,7 +77,6 @@
     <bool name="config_wifi_softap_ieee80211ac_supported">true</bool>
     <bool name="config_displayBlanksAfterDoze">false</bool>
     <bool name="skip_restoring_network_selection">true</bool>
-    <dimen name="config_viewConfigurationTouchSlop">16dp</dimen>
     <dimen name="status_bar_height">122px</dimen>
     <dimen name="status_bar_height_landscape">24dp</dimen>
     <dimen name="status_bar_height_portrait">122px</dimen>

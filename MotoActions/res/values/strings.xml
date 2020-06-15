@@ -88,7 +88,7 @@
 
    <!-- Screen off gestures haptic feedback -->
    <string name="haptic_feedback">Haptic feedback</string>
-   <string name="haptic_feedback_summary">Vibrate when a touchscreen gesture is detected</string>
+   <string name="haptic_feedback_summary">Vibrate when a Fingerprint gesture is detected</string>
    
    <!-- Pip -->
    <string name="app_does_not_support_pip">App does not support picture-in-picture mode.</string>

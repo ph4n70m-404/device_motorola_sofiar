@@ -107,14 +107,3 @@ PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-12-01
 TARGET_VENDOR := motorola
 
 $(call inherit-product, vendor/motorola/sofiar/sofiar-vendor.mk)
-
-ifeq ($(WITH_GAPPS),true)
-# https://gitlab.com/darkobas/android_vendor_gapps
-$(call inherit-product, vendor/gapps/config.mk)
-endif
-
-ifeq ($(WITH_MICROG),true)
-# https://github.com/boulzordev/android_prebuilts_prebuiltapks
-$(call inherit-product, vendor/microg/microg.mk)
-endif
-

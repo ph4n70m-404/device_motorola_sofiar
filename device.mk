@@ -195,8 +195,7 @@ else
   $(warning **********)
 endif
 
-#Gapps
-GAPPS_VARIANT := stock
-$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
+TARGET_GAPPS_ARCH := arm64
+$(call inherit-product, vendor/gapps/config.mk)
 
 $(call inherit-product, build/make/target/product/gsi_keys.mk)

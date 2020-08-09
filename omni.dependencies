@@ -12,9 +12,29 @@
     "revision": "android-10"
   },
   {
-    "remote": "omnirom",
-    "repository": "android_vendor_qcom_opensource_commonsys",
+    "remote": "github",
+    "repository": "darkobas/android_vendor_qcom_opensource_commonsys",
     "target_path": "vendor/qcom/opensource/commonsys",
     "revision": "android-10"
+  },
+  {
+    "remote": "github",
+    "repository": "darkobas/android_system_bt",
+    "target_path": "system/bt",
+    "revision": "android-10-caf",
+    "override": "platform/system/bt"
+  },
+  {
+    "remote": "github",
+    "repository": "darkobas/android_packages_apps_Bluetooth",
+    "target_path": "packages/apps/Bluetooth",
+    "revision": "android-10-caf",
+    "override": "platform/packages/apps/Bluetooth"
+  },
+  {
+    "remote": "github",
+    "repository": "LineageOS/android_vendor_qcom_opensource_bluetooth-commonsys-intf",
+    "target_path": "vendor/qcom/opensource/commonsys-intf/bluetooth",
+    "revision": "lineage-17.1"
   }
 ]

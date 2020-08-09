@@ -218,12 +218,9 @@ etc/cne/Nexus/VZW/VZW_profiles.xml
 etc/init/init.mmi.product_persist.rc
 etc/init/init.system.mmi.rc
 etc/permissions/com.motorola.camera2.content.ai.xml
-etc/permissions/com.motorola.camera2.logan.xml
 etc/permissions/com.motorola.androidx.camera.extensions.xml
 etc/permissions/com.motorola.dolby.dolbyui.features.xml
 etc/permissions/com.motorola.motosignature.xml
-etc/permissions/deviceowner-configuration-com.motorola.camera2.xml
-etc/permissions/privapp-permissions-com.motorola.camera2.xml
 etc/permissions/qti_libpermissions.xml
 etc/permissions/qti_permissions.xml
 -framework/com.motorola.androidx.camera.extensions.jar

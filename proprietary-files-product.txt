@@ -11,6 +11,9 @@ product/lib64/vendor.qti.hardware.btconfigstore@1.0.so
 product/lib64/vendor.qti.imsrtpservice@2.1.so
 product/lib/vendor.qti.imsrtpservice@2.1.so
 product/etc/permissions/embms-noship_product_privapp_permissions_qti.xml
+product/etc/permissions/com.motorola.camera2.logan.xml
+product/etc/permissions/deviceowner-configuration-com.motorola.camera2.xml
+product/etc/permissions/privapp-permissions-com.motorola.camera2.xml
 product/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
 product/etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
 product/etc/permissions/com.qualcomm.qti.imscmservice-V2.2-java.xml

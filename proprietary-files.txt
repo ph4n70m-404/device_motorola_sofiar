@@ -252,6 +252,8 @@ lib/libframeextension.so
 #-priv-app/MotCamera2/MotCamera2.apk
 usr/idc/uinput-egis.idc
 usr/keylayout/uinput-egis.kl
+usr/idc/uinput-fpc.idc
+usr/keylayout/uinput-fpc.kl
 
 etc/permissions/com.motorola.frameworks.core.addon.xml
 -framework/com.motorola.frameworks.core.addon.jar

@@ -40,6 +40,7 @@ public class MotoActionsSettings {
     private static final String GESTURE_IR_SILENCER_KEY = "gesture_ir_silencer";
     private static final String GESTURE_FLIP_TO_MUTE_KEY = "gesture_flip_to_mute";
     private static final String GESTURE_LIFT_TO_SILENCE_KEY = "gesture_lift_to_silence";
+    private static final String GESTURE_TAP_KEY = "gesture_tap";
 
     private final Context mContext;
     private final UpdatedStateNotifier mUpdatedStateNotifier;
@@ -51,6 +52,7 @@ public class MotoActionsSettings {
     private boolean mIrSilencerEnabled;
     private boolean mFlipToMuteEnabled;
     private boolean mLiftToSilenceEnabled;
+    private boolean mTapGestureEnabled;
 
     public MotoActionsSettings(Context context, UpdatedStateNotifier updatedStateNotifier) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -104,6 +106,10 @@ public class MotoActionsSettings {
         new TorchAction(mContext).action();
     }
 
+    public boolean isTapToWakeEnabled() {
+        return isDozeEnabled() && mTapGestureEnabled;
+    }
+
     private void loadPreferences(SharedPreferences sharedPreferences) {
         mCameraGestureEnabled = sharedPreferences.getBoolean(GESTURE_CAMERA_ACTION_KEY, true);
         mChopChopEnabled = sharedPreferences.getBoolean(GESTURE_CHOP_CHOP_KEY, true);
@@ -112,6 +118,7 @@ public class MotoActionsSettings {
         mIrSilencerEnabled = sharedPreferences.getBoolean(GESTURE_IR_SILENCER_KEY, false);
         mFlipToMuteEnabled = sharedPreferences.getBoolean(GESTURE_FLIP_TO_MUTE_KEY, false);
         mLiftToSilenceEnabled = sharedPreferences.getBoolean(GESTURE_LIFT_TO_SILENCE_KEY, false);
+        mTapGestureEnabled = sharedPreferences.getBoolean(GESTURE_TAP_KEY, true);
     }
 
     private SharedPreferences.OnSharedPreferenceChangeListener mPrefListener =
@@ -134,6 +141,8 @@ public class MotoActionsSettings {
                 mFlipToMuteEnabled = sharedPreferences.getBoolean(GESTURE_FLIP_TO_MUTE_KEY, false);
             } else if (GESTURE_LIFT_TO_SILENCE_KEY.equals(key)) {
                 mLiftToSilenceEnabled = sharedPreferences.getBoolean(GESTURE_LIFT_TO_SILENCE_KEY, false);
+            } else if (GESTURE_TAP_KEY.equals(key)) {
+                mTapGestureEnabled = sharedPreferences.getBoolean(GESTURE_TAP_KEY, true);
             } else if (Constants.FP_HOME_KEY.equals(key) || Constants.FP_HAPTIC_KEY.equals(key) || Constants.FP_HOME_KEY_OFF.equals(key) || Constants.FP_HAPTIC_SCREENOFF_KEY.equals(key) ||Constants.FP_PROXIMITY_CHECK_SCREENOFF_KEY.equals(key) || Constants.FP_KEYS.equals(key) || Constants.FP_KEY_DBLTAP.equals(key) || Constants.FP_KEY_HOLD.equals(key) ||  Constants.FP_KEY_LEFT.equals(key) || Constants.FP_KEY_RIGHT.equals(key)
                 || Constants.FP_KEYS_OFF.equals(key) || Constants.FP_KEY_DBLTAP_OFF.equals(key) || Constants.FP_KEY_HOLD_OFF.equals(key) ||  Constants.FP_KEY_LEFT_OFF.equals(key) || Constants.FP_KEY_RIGHT_OFF.equals(key)
                 || Constants.GESTURE_SWIPE_RIGHT.equals(key) || Constants.GESTURE_SWIPE_LEFT.equals(key) || Constants.GESTURE_SWIPE_DOWN.equals(key) || Constants.GESTURE_SWIPE_UP.equals(key)) {

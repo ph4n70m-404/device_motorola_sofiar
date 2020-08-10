@@ -39,13 +39,6 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_BUILD_PRODUCT_IMAGE  := true
 PRODUCT_BUILD_ODM_IMAGE := false
 
-BOARD_SUPER_PARTITION_SIZE := 9730785280
-BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9730785280
-BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
-    system \
-    product
-
 # tell update_engine to not change dynamic partition table during updates
 # needed since our qti_dynamic_partitions does not include
 # vendor and odm and we also dont want to AB update them
@@ -54,13 +47,6 @@ TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
 # enable to generate super_empy.img if needed to wipe super partition table
 #BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST += \
     vendor
-
-BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 209715200
-BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 209715200
-BOARD_EXT4_SHARE_DUP_BLOCKS := true
-BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 
 PRODUCT_BUILD_RAMDISK_IMAGE := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false

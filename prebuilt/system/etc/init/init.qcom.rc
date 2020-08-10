@@ -1,3 +1,6 @@
+on early-init
+    insmod /vendor/lib/modules/focaltech_0flash_mmi.ko
+
 on init
     mount none /dev/null /vendor/overlay/TelephonyResCommon.apk bind
     mount none /dev/null /vendor/overlay/TelephonyResMotCommon.apk bind

@@ -54,11 +54,18 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/copy_ab_partitions \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
+
 PRODUCT_PACKAGES += \
     otapreopt_script \
     update_engine \
     update_engine_sideload \
-    update_verifier
+    update_verifier \
+    copy_ab_partitions
 
 PRODUCT_HOST_PACKAGES += \
     brillo_update_payload

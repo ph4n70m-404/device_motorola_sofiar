@@ -22,14 +22,14 @@
     "repository": "darkobas/android_system_bt",
     "target_path": "system/bt",
     "revision": "android-10-caf",
-    "override": "platform/system/bt"
+    "override": "android_system_bt"
   },
   {
     "remote": "github",
     "repository": "darkobas/android_packages_apps_Bluetooth",
     "target_path": "packages/apps/Bluetooth",
     "revision": "android-10-caf",
-    "override": "platform/packages/apps/Bluetooth"
+    "override": "android_packages_apps_Bluetooth"
   },
   {
     "remote": "github",

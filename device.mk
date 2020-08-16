@@ -202,8 +202,4 @@ else
   $(warning **********)
 endif
 
-ROM_BUILDTYPE := GAPPS
-TARGET_INCLUDE_STOCK_ARCORE := true
-$(call inherit-product-if-exists, vendor/gapps/config.mk)
-
 $(call inherit-product, build/make/target/product/gsi_keys.mk)

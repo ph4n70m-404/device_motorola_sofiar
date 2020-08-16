@@ -1,0 +1,10 @@
+cc_library_static {
+    name: "libinit_moto_trinket",
+    include_dirs: [
+        "system/core/base/include",
+        "system/core/init",
+    ],
+    srcs: ["init_moto_trinket.cpp"],
+    recovery_available: true,
+}
+

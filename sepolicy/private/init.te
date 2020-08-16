@@ -11,4 +11,7 @@ allow init vendor_file:file mounton;
 allow init sysfs_homebutton:file setattr;
 # allow init sysfs_input:file setattr;
 allow init sysfs_dm:file setattr;
+allow init self:capability sys_module;
+allow init vendor_configs_file:dir mounton;
+allow init vendor_file:system module_load;
 

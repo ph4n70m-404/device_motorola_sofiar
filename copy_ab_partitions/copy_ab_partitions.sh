@@ -14,19 +14,26 @@
 # if any, is independently licensed.                #
 #####################################################
 
+suffix_active=$(getprop ro.boot.slot_suffix)
+recovery_running=$(getprop init.svc.recovery)
+
 echo "running post install copy_ab_partitions"
+
+if [[ "$recovery_running" != "running" ]]; then
+    echo "not in recovery, exiting"
+    exit 0
+fi
 
 # Partitions ignored
 IGNORED="dtbo_a dtbo_b system_a system_b boot_a boot_b product_a product_b vbmeta_a vbmeta_b vendor_a vendor_b"
-
-suffix_active=$(getprop ro.boot.slot_suffix)
 
 echo "current slot ${suffix_active}"
 
 if [[ "$suffix_active" == "_a" ]]; then
   suffix_swap="_b"
 else
-  suffix_swap="_a"
+  echo "no need to copy partitions to slot _a, exiting"
+  exit 0
 fi
 
 for active in /dev/block/bootdevice/by-name/*$suffix_active; do

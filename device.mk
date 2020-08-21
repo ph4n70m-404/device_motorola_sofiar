@@ -39,7 +39,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 AB_OTA_PARTITIONS += \
     boot \
-    dtbo \
     system \
     vbmeta \
     product

@@ -178,11 +178,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RemovePackages
 
-#PRODUCT_BOOT_JARS += \
-#    com.nxp.nfc \
-#    tcmiface \
-#    WfdCommon \
-#    qcnvitems
+PRODUCT_PACKAGES += \
+    MotoRav
 
 # Video seccomp policy files
 PRODUCT_COPY_FILES += \

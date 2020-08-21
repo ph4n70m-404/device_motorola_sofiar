@@ -21,10 +21,17 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.SystemProperties;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.Log;
 
 import com.moto.actions.util.FileUtils;
@@ -34,8 +41,10 @@ import com.moto.actions.ServiceWrapper.LocalBinder;
 public class BootCompletedReceiver extends BroadcastReceiver {
     static final String TAG = "MotoActions";
     final String NAVBAR_SHOWN = "navbar_shown";
+    static final String ravOverlayPackageName = "org.omnirom.overlay.moto.rav"
 
     private ServiceWrapper mServiceWrapper;
+    private static OverlayManager sOverlayService;
 
     @Override
     public void onReceive(final Context context, Intent intent) {
@@ -47,6 +56,23 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         }
 
         context.startService(new Intent(context, ServiceWrapper.class));
+
+        if (sOverlayService == null) {
+            sOverlayService = new OverlayManager();
+        }
+        try {
+            String deviceProp = SystemProperties.get("ro.product.product.device", "sofia");
+            if (deviceProp.contains("rav")) {
+                boolean isEnabled = sOverlayService.getOverlayInfo(ravOverlayPackageName,
+                    UserHandle.myUserId()).isEnabled();
+                if (!isEnabled) {
+                    sOverlayService.setEnabled(ravOverlayPackageName, true,
+                        UserHandle.myUserId());
+                }
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     private ServiceConnection serviceConnection = new ServiceConnection() {
@@ -62,4 +88,23 @@ public class BootCompletedReceiver extends BroadcastReceiver {
             mServiceWrapper = null;
         }
     };
+
+    public static class OverlayManager {
+        private final IOverlayManager mService;
+
+        public OverlayManager() {
+            mService = IOverlayManager.Stub.asInterface(
+                    ServiceManager.getService(Context.OVERLAY_SERVICE));
+        }
+
+        public void setEnabled(String pkg, boolean enabled, int userId)
+                throws RemoteException {
+            mService.setEnabled(pkg, enabled, userId);
+        }
+
+        public OverlayInfo getOverlayInfo(String target, int userId)
+                throws RemoteException {
+            return mService.getOverlayInfo(target, userId);
+        }
+    }
 }

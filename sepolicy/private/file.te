@@ -8,5 +8,4 @@ type sysfs_graphics, sysfs_type, fs_type;
 type proc_touchpanel, fs_type;
 type sysfs_usb_supply, sysfs_type, fs_type;
 type sysfs_battery_supply, sysfs_type, fs_type;
-type sysfs_popup, sysfs_type, fs_type;
 type sysfs_homebutton, fs_type, sysfs_type;

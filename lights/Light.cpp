@@ -35,7 +35,8 @@ namespace implementation {
 
 #define LCD_LED         "/sys/class/backlight/panel0-backlight/brightness"
 
-#define BREAH           "breath"
+#define DELAY_ON        "delay_on"
+#define DELAY_OFF       "delay_off"
 #define BRIGHTNESS      "brightness"
 
 /*
@@ -74,24 +75,25 @@ static void handleNotification(const LightState& state) {
     /*
      * Extract brightness from AARRGGBB.
      */
-    uint32_t brightness = (state.color >> 24) & 0xFF;
-    int32_t breath = 0;
+    int brightness = Light::rgbToBrightness(state);
 
-    if (state.flashMode == Flash::TIMED) {
-        int32_t pauseHi = state.flashOnMs;
-        int32_t pauseLo = state.flashOffMs;
-
-
-        if (pauseHi > 0 && pauseLo > 0) {
-            breath = 1;
+    if (brightness > 0 && state.flashMode == Flash::TIMED) {
+        if (state.flashOnMs > 0 && state.flashOffMs > 0) {
+            set(LEDS BRIGHTNESS, brightness);
+            set(LEDS DELAY_ON, state.flashOnMs);
+            set(LEDS DELAY_OFF, state.flashOffMs);
+        } else {
+            set(LEDS BRIGHTNESS, brightness);
+            set(LEDS DELAY_ON, 0);
+            set(LEDS DELAY_OFF, 0);
         }
-    }
-    if (brightness > 0 && breath == 1) {
-        set(LEDS BREAH, breath);
     } else if (brightness > 0) {
         set(LEDS BRIGHTNESS, brightness);
+        set(LEDS DELAY_ON, 0);
+        set(LEDS DELAY_OFF, 0);
     } else {
-        set(LEDS BREAH, 0);
+        set(LEDS DELAY_ON, 0);
+        set(LEDS DELAY_OFF, 0);
         set(LEDS BRIGHTNESS, 0);
     }
 }

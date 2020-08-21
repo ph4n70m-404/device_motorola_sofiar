@@ -113,6 +113,24 @@ void vendor_load_properties() {
             set_ro_product_prop(source, "model", "moto g pro");
             set_ro_product_prop(source, "name", "sofiap_ao");
         }
+    } else if (device == "rav_t") {
+        property_override("ro.build.description", "rav_t-user 10 QPJ30.131-61 95ac67 release-keys");
+        property_override("ro.build.version.security_patch", "2020-07-01");
+        for (const auto &source : ro_props_default_source_order) {
+            set_ro_build_prop(source, "fingerprint", "motorola/rav_t/rav:10/QPJ30.131-61/95ac67:user/release-keys");
+            set_ro_product_prop(source, "device", "sofiap_sprout");
+            set_ro_product_prop(source, "model", "moto g fast");
+            set_ro_product_prop(source, "name", "rav_t");
+        }
+    } else if (device == "rav") {
+        property_override("ro.build.description", "rav_retail-user 10 QPJS30.63-35-1-9 2a90b release-keys");
+        property_override("ro.build.version.security_patch", "2020-07-01");
+        for (const auto &source : ro_props_default_source_order) {
+            set_ro_build_prop(source, "fingerprint", "motorola/rav_retail/rav:10/QPJS30.63-35-1-9/2a90b:user/release-keys");
+            set_ro_product_prop(source, "device", "rav");
+            set_ro_product_prop(source, "model", "moto g(8)");
+            set_ro_product_prop(source, "name", "rav_t");
+        }
     }
 }
 

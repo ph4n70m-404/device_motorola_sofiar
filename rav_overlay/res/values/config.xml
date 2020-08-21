@@ -33,7 +33,6 @@
         <item>3000</item>
     </integer-array>
     <integer-array name="config_screenBrightnessBacklight">
-        <item>0</item>
         <item>2</item>
         <item>11</item>
         <item>38</item>
@@ -49,7 +48,6 @@
         <item>247</item>
     </integer-array>
     <integer-array name="config_screenBrightnessNits">
-        <item>0</item>
         <item>3</item>
         <item>20</item>
         <item>70</item>
@@ -65,7 +63,6 @@
         <item>450</item>
     </integer-array>
     <integer-array name="config_virtualKeyVibePattern">
-        <item>0</item>
         <item>34</item>
     </integer-array>
     <dimen name="quick_qs_offset_height">71.0px</dimen>

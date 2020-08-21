@@ -172,12 +172,10 @@
     </string-array>
 
     <integer-array name="config_keyboardTapVibePattern">
-        <item>@null</item>
         <item>30</item>
     </integer-array>
 
     <integer-array name="config_longPressVibePattern">
-        <item>@null</item>
         <item>30</item>
     </integer-array>
 
@@ -227,7 +225,6 @@
         <item>450</item>
     </array>
     <integer-array name="config_scrollBarrierVibePattern">
-        <item>@null</item>
         <item>15</item>
         <item>30</item>
         <item>15</item>
@@ -251,7 +248,6 @@
         <item>softap0</item>
     </string-array>
     <integer-array name="config_virtualKeyVibePattern">
-        <item>@null</item>
         <item>28</item>
     </integer-array>
     <string-array name="networkAttributes">

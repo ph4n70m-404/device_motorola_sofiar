@@ -41,7 +41,7 @@ import com.moto.actions.ServiceWrapper.LocalBinder;
 public class BootCompletedReceiver extends BroadcastReceiver {
     static final String TAG = "MotoActions";
     final String NAVBAR_SHOWN = "navbar_shown";
-    static final String ravOverlayPackageName = "org.omnirom.overlay.moto.rav"
+    static final String ravOverlayPackageName = "org.omnirom.overlay.moto.rav";
 
     private ServiceWrapper mServiceWrapper;
     private static OverlayManager sOverlayService;

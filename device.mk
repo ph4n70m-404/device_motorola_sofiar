@@ -134,7 +134,7 @@ PRODUCT_PACKAGES += \
     libandroid_net
 
 PRODUCT_PACKAGES += \
-    MotoActions
+    LineageActions
 
 PRODUCT_PACKAGES += \
     vndk_package

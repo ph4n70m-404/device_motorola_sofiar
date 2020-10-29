@@ -19,6 +19,8 @@
 # product configuration (apps).
 #
 
+PRODUCT_EXTRA_VNDK_VERSIONS := 29
+
 VENDOR_EXCEPTION_PATHS := omni \
     motorola \
     gapps \

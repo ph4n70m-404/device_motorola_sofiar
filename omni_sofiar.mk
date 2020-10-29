@@ -65,9 +65,6 @@ DEVICE_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
-# get the rest of aosp stuff after ours
-$(call inherit-product, $(SRC_TARGET_DIR)/product/mainline_system_arm64.mk)
-
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/motorola/sofiar/device.mk)
 

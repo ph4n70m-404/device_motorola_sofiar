@@ -4,7 +4,7 @@ camera.mot.is.coming.cts     u:object_r:exported_system_prop:s0 exact string
 camera.mot.is.coming.aosp    u:object_r:exported_system_prop:s0 exact string
 camera.mot.is.client.foreground    u:object_r:exported_system_prop:s0 exact string
 camera.mot.rc_id            u:object_r:exported_system_prop:s0 exact int
-camera.mot.mod_id           u:object_r:exported_system_prop:s0 exac
+camera.mot.mod_id           u:object_r:exported_system_prop:s0 exact
 
 persist.charge.led.lighting         u:object_r:exported_system_prop:s0 exact string
 persist.mot             u:object_r:moto_system_prop:s0

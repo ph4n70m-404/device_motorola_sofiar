@@ -768,7 +768,7 @@ public class KeyHandler implements DeviceKeyHandler {
         mSearchManagerService = ISearchManager.Stub.asInterface(ServiceManager.getService(Context.SEARCH_SERVICE));
         if (mSearchManagerService != null) {
             try {
-                mSearchManagerService.launchAssist(new Bundle());
+                mSearchManagerService.launchAssist(UserHandle.USER_CURRENT, new Bundle());
             } catch (RemoteException e) {
             }
         }

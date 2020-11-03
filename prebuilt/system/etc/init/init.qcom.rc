@@ -2,7 +2,7 @@ on early-init
     insmod /vendor/lib/modules/focaltech_0flash_mmi.ko
 
 on init
-    mount none /dev/null /vendor/overlay/TelephonyResCommon.apk bind
+    mount none /dev/null /vendor/overlay/TelephonyResCommonQcom.apk bind
     mount none /dev/null /vendor/overlay/TelephonyResMotCommon.apk bind
     mount none /dev/null /vendor/overlay/framework-res__auto_generated_rro_vendor.apk bind
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio_policy_configuration.xml bind

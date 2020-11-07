@@ -191,3 +191,4 @@ ro.mot.build.version.release=30.11
 ro.treble.enabled=true
 net.bt.name=Android
 ro.vendor.qti.va_aosp.support=1
+ro.surface_flinger.supports_background_blur=1

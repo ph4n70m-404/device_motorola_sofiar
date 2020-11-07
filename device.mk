@@ -166,6 +166,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MotoRav
 
+PRODUCT_BOOT_JARS += android.hidl.manager-V1.0-java
+
 # Video seccomp policy files
 PRODUCT_COPY_FILES += \
     device/motorola/sofiar/seccomp/codec2.software.ext.policy:$(TARGET_COPY_OUT)/etc/seccomp_policy/codec2.software.ext.policy

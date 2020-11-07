@@ -166,7 +166,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MotoRav
 
-PRODUCT_BOOT_JARS += android.hidl.manager-V1.0-java
+PRODUCT_BOOT_JARS += \
+    android.hidl.manager-V1.0-java \
+    QPerformance \
+    UxPerformance
 
 # Video seccomp policy files
 PRODUCT_COPY_FILES += \

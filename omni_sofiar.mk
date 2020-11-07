@@ -91,4 +91,9 @@ PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-12-01
 
 TARGET_VENDOR := motorola
 
+PRODUCT_PRODUCT_PROPERTIES += \
+    debug.sf.enable_gl_backpressure=0 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.latch_unsignaled=1
+
 $(call inherit-product, vendor/motorola/sofiar/sofiar-vendor.mk)

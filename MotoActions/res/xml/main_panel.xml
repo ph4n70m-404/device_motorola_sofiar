@@ -48,14 +48,13 @@
                 android:targetClass="com.moto.actions.FPGestureSettingsActivity" />
     </Preference>
 
-    <!-- <Preference
-        android:key="screen_off_gestures"
-        android:title="@string/screen_off_gestures_title"
-        android:summary="@string/screen_off_gestures_manage_summary"
-        android:icon="@drawable/ic_settings_screen_off_gestures">
-            <intent
-                android:targetPackage="com.moto.actions"
-                android:targetClass="com.moto.actions.ScreenOffGestureSettingsActivity" />
-    </Preference> -->
+    <Preference
+        android:key="stylus"
+        android:title="@string/stylus_title"
+        android:persistent="false" >
+        <intent
+             android:targetPackage="com.motorola.stylus"
+             android:targetClass="com.motorola.stylus.settings.activity.SettingsActivity" />
+    </Preference>
 
 </PreferenceScreen>

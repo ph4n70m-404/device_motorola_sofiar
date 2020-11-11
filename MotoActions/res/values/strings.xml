@@ -155,4 +155,7 @@
     <string name="ambient_display_summary">Wake screen when you receive notifications</string>
     <string name="ambient_display_summary_on">Screen will wake when you receive notifications</string>
     <string name="ambient_display_summary_off">Screen will not wake when you receive notifications</string>
+
+    <!-- Stylus -->
+    <string name="stylus_title">Stylus settings</string>
 </resources>

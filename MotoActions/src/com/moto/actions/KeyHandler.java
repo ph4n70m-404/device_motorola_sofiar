@@ -113,6 +113,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private boolean mDoubleTapToWake;
     private boolean mAODEnabled;
     private boolean mProxyIsNear;
+    private static final String PEN_STATE = "pen_insert_state";
 
     private Runnable doubleTapRunnable = new Runnable() {
         public void run() {
@@ -514,6 +515,11 @@ public class KeyHandler implements DeviceKeyHandler {
                     + ", repeatCount=" + event.getRepeatCount());
         }
 
+        if (scanCode == STYLUS_SCANCODE) {
+            Settings.Global.putInt(mContext.getContentResolver(), PEN_STATE, event.getAction());
+            return true;
+        }
+
         boolean isFPScanCode = ArrayUtils.contains(sSupportedFPGestures, scanCode);
         boolean isScreenOffGesturesScanCode = ArrayUtils.contains(sSupportedScreenOffGestures, scanCode);
         if (!isFPScanCode && !isScreenOffGesturesScanCode) {
@@ -570,6 +576,10 @@ public class KeyHandler implements DeviceKeyHandler {
                     + ", scanCode=" + event.getScanCode()
                     + ", metaState=" + event.getMetaState()
                     + ", repeatCount=" + event.getRepeatCount());
+        }
+
+        if (scanCode == STYLUS_SCANCODE) {
+            return true;
         }
 
         boolean isFPScanCode = ArrayUtils.contains(sSupportedFPGestures, scanCode);

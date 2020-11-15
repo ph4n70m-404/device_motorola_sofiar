@@ -56,12 +56,14 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/motorola/trinket
-TARGET_KERNEL_CONFIG := vendor/sofiar_defconfig
+TARGET_PREBUILT_KERNEL := device/motorola/sofiar/prebuilt/Image.gz-dtb
+# TARGET_KERNEL_CONFIG := vendor/sofiar_defconfig
 TARGET_KERNEL_VERSION := 4.14
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_VERSION := r365631c
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+TARGET_PREBUILT_DTB := device/motorola/sofiar/prebuilt/dtb.img
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
@@ -156,3 +158,8 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
+
+LOCAL_KERNEL := device/motorola/sofiar/prebuilt/Image.gz-dtb
+PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
+LOCAL_DTB := device/motorola/sofiar/prebuilt/dtb.img
+PRODUCT_COPY_FILES += $(LOCAL_DTB):dtb.img

@@ -36,10 +36,8 @@
 #include <sys/_system_properties.h>
 #include <vector>
 
-namespace android {
-namespace init {
-
 using android::base::GetProperty;
+using android::base::SetProperty;
 
 std::vector<std::string> ro_props_default_source_order = {
     "",
@@ -60,7 +58,7 @@ void property_override(char const prop[], char const value[], bool add = true)
     __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-void vendor_load_properties() {
+void moto_device_properties() {
 
     const auto set_ro_build_prop = [](const std::string &source,
             const std::string &prop, const std::string &value) {
@@ -132,5 +130,7 @@ void vendor_load_properties() {
     }
 }
 
-}  // namespace init
-}  // namespace android
+
+void vendor_load_properties() {
+    moto_device_properties();
+}

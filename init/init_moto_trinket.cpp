@@ -49,13 +49,13 @@ std::vector<std::string> ro_props_default_source_order = {
 
 void property_override(char const prop[], char const value[], bool add = true)
 {
-    prop_info *pi;
+    auto pi = (prop_info *) __system_property_find(prop);
 
-    pi = (prop_info*) __system_property_find(prop);
-    if (pi)
+    if (pi != nullptr) {
     __system_property_update(pi, value, strlen(value));
-    else if (add)
+    } else if (add) {
     __system_property_add(prop, strlen(prop), value, strlen(value));
+    }
 }
 
 void moto_device_properties() {

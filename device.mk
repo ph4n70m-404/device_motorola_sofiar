@@ -209,7 +209,6 @@ $(call inherit-product, build/make/target/product/gsi_keys.mk)
 
 # fix TelephonyExt
 PRODUCT_PACKAGES += telephony-ext
-PRODUCT_BOOT_JARS += telephony-ext
 
 # bluetooth
 PRODUCT_PACKAGES += \

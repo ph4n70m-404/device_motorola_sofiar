@@ -35,9 +35,9 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 #include <vector>
+#include "vendor_init.h"
 
 using android::base::GetProperty;
-using android::base::SetProperty;
 
 std::vector<std::string> ro_props_default_source_order = {
     "",
@@ -59,7 +59,7 @@ void property_override(char const prop[], char const value[], bool add = true)
     
 }
 
-void moto_device_properties() {
+void vendor_load_properties() {
 
     const auto set_ro_build_prop = [](const std::string &source,
             const std::string &prop, const std::string &value) {
@@ -123,9 +123,4 @@ void moto_device_properties() {
             set_ro_product_prop(source, "name", "rav_t");
         }
     }
-}
-
-
-void vendor_load_properties() {
-    moto_device_properties();
 }

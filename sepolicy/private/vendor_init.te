@@ -1,5 +1,6 @@
 allow vendor_init persist_debug_prop:file read;
 allow vendor_init system_file:file getattr;
+allow vendor_init default_prop:file { getattr map open read };
 
 typeattribute vendor_init data_between_core_and_vendor_violators;
 

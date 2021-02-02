@@ -88,6 +88,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.enable_gl_backpressure=0 \
     debug.sf.enable_hwc_vds=1 \
     debug.sf.latch_unsignaled=1 \
-    vendor.camera.aux.packagelist=com.android.settings,com.motorola.camera2,com.motorola.camera3
-
+    vendor.camera.aux.packagelist=com.android.settings,com.motorola.camera2,com.motorola.camera3 \
+    ro.config.use_compaction=true \
+    ro.config.compact_action_1=4 \
+    ro.config.compact_action_2=2
+    
 $(call inherit-product, vendor/motorola/sofiar/sofiar-vendor.mk)

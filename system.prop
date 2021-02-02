@@ -193,3 +193,4 @@ net.bt.name=Android
 ro.vendor.qti.va_aosp.support=1
 sys.vendor.qti.servicetracker.disable=true
 ro.surface_flinger.supports_background_blur=1
+persist.device_config.runtime_native.usap_pool_enabled=true

@@ -2,4 +2,4 @@ allow priv_app vendor_default_prop:file read;
 allow priv_app bt_firmware_file:filesystem getattr;
 allow priv_app firmware_file:filesystem getattr;
 allow priv_app mnt_product_file:dir search;
-# allow priv_app mnt_vendor_file:dir search;
+get_prop(priv_app, vendor_default_prop);

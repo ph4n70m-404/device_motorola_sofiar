@@ -139,15 +139,12 @@ qemu.hw.mainkeys=0
 #Increase cached app limit
 ro.vendor.qti.sys.fw.bg_apps_limit=60
 
-#Expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam
-
 #Whitelisting the below packages
-persist.vendor.camera.privapp.list=org.codeaurora.snapcam
-persist.camera.privapp.list=org.codeaurora.snapcam
+persist.vendor.camera.privapp.list=org.omnirom.snap
+persist.camera.privapp.list=org.omnirom.snap
 
 # Expose CFA Config to specific apps
-ro.camera.cfa.packagelist=com.motorola.coresettingsext,com.motorola.camera2,com.motorola.actions
+ro.camera.cfa.packagelist=com.motorola.camera2,com.motorola.camera3
 
 #Enable ZRAM
 ro.vendor.qti.config.zram=true

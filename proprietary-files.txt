@@ -215,7 +215,7 @@ etc/NT36xxx_MP_Setting_Criteria_6017.csv
 etc/cne/Nexus/ATT/ATT_profiles.xml
 etc/cne/Nexus/ROW/ROW_profiles.xml
 etc/cne/Nexus/VZW/VZW_profiles.xml
-etc/init/init.mmi.product_persist.rc
+etc/init/init.mmi.product_persist.rc|38ed5a08649c3e64342eeb95a21a3a74142d91cd
 etc/init/init.system.mmi.rc
 etc/permissions/com.motorola.camera2.content.ai.xml
 etc/permissions/com.motorola.androidx.camera.extensions.xml

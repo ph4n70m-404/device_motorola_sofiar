@@ -82,6 +82,13 @@ PRODUCT_PACKAGES_DEBUG += \
 #    animation.txt \
 #    font_charger.png
 
+# HIDL
+PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhwbinder \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0
+
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 

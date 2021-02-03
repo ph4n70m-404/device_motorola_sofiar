@@ -107,6 +107,12 @@ PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_PACKAGES += \
     SnapdragonCamera2
 
+PRODUCT_PACKAGES += \
+    libqcomfm_jni \
+    qcom.fmradio
+
+PRODUCT_BOOT_JARS += qcom.fmradio
+
 # ANT+
 #PRODUCT_PACKAGES += \
 #    AntHalService
@@ -134,10 +140,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     vndk_package
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0
 
 PRODUCT_PACKAGES += \
     vendor.display.config@1.10 \

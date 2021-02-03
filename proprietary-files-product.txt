@@ -339,3 +339,5 @@ product/etc/permissions/privapp-permissions-com.motorola.vzw.pco.extensions.pcor
 
 -product/priv-app/daxService/daxService.apk
 
+-product/app/FMRadioService/FMRadioService.apk|3e5eed0a5b9ed2f63317d999b0c2aa1c2bd717af
+-product/priv-app/FMPlayer/FMPlayer.apk

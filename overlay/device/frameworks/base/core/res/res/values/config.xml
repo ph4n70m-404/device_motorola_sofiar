@@ -78,12 +78,11 @@
     <bool name="config_displayBlanksAfterDoze">false</bool>
     <bool name="skip_restoring_network_selection">true</bool>
     <dimen name="status_bar_height">152px</dimen>
-    <dimen name="status_bar_height_landscape">28dp</dimen>
+    <dimen name="status_bar_height_landscape">26dp</dimen>
     <dimen name="status_bar_height_portrait">122px</dimen>
     <dimen name="status_bar_icon_size">24dp</dimen>
     <dimen name="quick_qs_offset_height">152px</dimen>
-    <dimen name="config_viewConfigurationTouchSlop">16dp</dimen>
-    <string name="config_mainBuiltInDisplayCutout">M -544,0 L -416,0 L -416,116 L -544,116 Z</string>
+    <string name="config_mainBuiltInDisplayCutout">M 128,0 L 0,0 L 0,120 L 128,120 Z @left</string>
 
     <integer name="config_multiuserMaximumUsers">4</integer>
 

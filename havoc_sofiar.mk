@@ -99,3 +99,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.lmk.psi_complete_stall_ms=80
     
 $(call inherit-product, vendor/motorola/sofiar/sofiar-vendor.mk)
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage

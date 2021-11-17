@@ -21,7 +21,7 @@
 
 PRODUCT_EXTRA_VNDK_VERSIONS := 29
 
-VENDOR_EXCEPTION_PATHS := havoc \
+VENDOR_EXCEPTION_PATHS := ROM \
     motorola \
     gapps \
     microg
@@ -31,8 +31,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit some common HavocOS stuff
-$(call inherit-product, vendor/havoc/config/common_full_phone.mk)
+# Inherit some common ROM stuff
+$(call inherit-product, vendor/ROM/config/common_full_phone.mk)
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
@@ -66,7 +66,7 @@ $(call inherit-product, device/motorola/sofiar/device.mk)
 PRODUCT_SHIPPING_API_LEVEL := 29
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := havoc_sofiar
+PRODUCT_NAME := ROM_sofiar
 PRODUCT_DEVICE := sofiar
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
@@ -101,4 +101,4 @@ PRODUCT_PRODUCT_PROPERTIES += \
 $(call inherit-product, vendor/motorola/sofiar/sofiar-vendor.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-ROM

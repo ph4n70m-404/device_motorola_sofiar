@@ -17,31 +17,42 @@
 
 package org.lineageos.settings.device;
 
-import android.app.ActionBar;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
-import androidx.preference.SwitchPreference;
-import android.text.TextUtils;
-import android.view.MenuItem;
-
-import java.io.File;
 
 public class ActionsPreferenceFragment extends PreferenceFragment {
-
     @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.actions_panel);
-        final ActionBar actionBar = getActivity().getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            getActivity().onBackPressed();
-            return true;
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        addPreferencesFromResource(R.xml.main_panel);
+         try {
+            String deviceProp = SystemProperties.get("ro.product.product.device", "sofia");
+            if (!deviceProp.contains("sofiap")) {
+                Preference pref = getPreferenceScreen().findPreference("stylus");
+                if (pref != null) {
+                    getPreferenceScreen().removePreference(pref);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            }
+         try {
+            String deviceProp = SystemProperties.get("ro.product.product.device", "sofia");
+            if (!deviceProp.contains("sofiap")) {
+                Preference pref = getPreferenceScreen().findPreference("note");
+                if (pref != null) {
+                    getPreferenceScreen().removePreference(pref);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return false;
     }
 }

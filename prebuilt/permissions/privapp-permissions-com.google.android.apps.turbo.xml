@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <!-- Additional permissions on top of privapp-permissions-platform.xml -->
+    <privapp-permissions package="com.google.android.apps.turbo">
+        <permission name="android.permission.POWER_SAVER"/>
+    </privapp-permissions>
+
+</permissions>

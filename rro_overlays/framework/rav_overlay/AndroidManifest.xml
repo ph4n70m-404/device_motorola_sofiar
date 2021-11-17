@@ -22,7 +22,9 @@
     platformBuildVersionCode="29">
     <application android:extractNativeLibs="false"/>
     <overlay
-        android:isStatic="false"
-        android:priority="192"
+        android:isStatic="true"
+        android:priority="10"
+        android:requiredSystemPropertyName="ro.product.device"
+        android:requiredSystemPropertyValue="rav"
         android:targetPackage="android"/>
 </manifest>

@@ -173,8 +173,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RemovePackages
 
+# Camera cutout overlys
 PRODUCT_PACKAGES += \
-    MotoRav
+    MotoRav \
+    MotoRavT \
+    MotoSofia \
+    MotoSofiaP \
+    MotoSofiaPSprout \
+    MotoSofiaR
 
 PRODUCT_BOOT_JARS += \
     android.hidl.manager-V1.0-java \

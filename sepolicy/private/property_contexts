@@ -21,3 +21,4 @@ ro.mot.hab.csv u:object_r:exported2_default_prop:s0 exact int
 ro.mot.build.guid          u:object_r:moto_ota_prop:s0
 ro.mot.version.full        u:object_r:moto_ota_prop:s0
 
+motorola.hardware.fmradio::IMotFMRadio                    u:object_r:hal_motfmradio_hwservice:s0

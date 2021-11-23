@@ -196,3 +196,6 @@ persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 persist.radio.calls.on.ims=1
+
+# Unofficial maintainer is ph4n70m
+ro.spark.maintainer=ph4n70m

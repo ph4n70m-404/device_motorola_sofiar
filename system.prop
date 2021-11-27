@@ -146,6 +146,9 @@ persist.camera.privapp.list=org.omnirom.snap
 # Expose CFA Config to specific apps
 ro.camera.cfa.packagelist=com.motorola.camera2,com.motorola.camera3
 
+#Fix Tethering
+persist.sys.usb.config.extra=none
+
 #Enable ZRAM
 ro.vendor.qti.config.zram=true
 

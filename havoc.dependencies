@@ -1,0 +1,17 @@
+[
+  {
+    "repository": "android_kernel_motorola_trinket",
+    "target_path": "kernel/motorola/trinket",
+    "branch": "eleven"
+  },
+  {
+    "repository": "android_device_motorola_sofiar",
+    "target_path": "device/motorola/sofiar",
+    "branch": "eleven"
+  },
+  {
+    "repository": "android_vendor_motorola_sofiar",
+    "target_path": "vendor/motorola/sofiar",
+    "branch": "eleven"
+  }
+]

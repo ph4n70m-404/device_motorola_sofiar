@@ -199,3 +199,9 @@ persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 persist.radio.calls.on.ims=1
+
+# Havoc info
+ro.havoc.device.name=Rav/Sofia-R-P
+ro.havoc.group.url=https://t.me/+ioAiJwr1DKZiMjJl
+ro.havoc.maintainer=ph4n70m
+ro.havoc.maintainer.username=ph4n70m-404

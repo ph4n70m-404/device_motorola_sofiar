@@ -1,3 +1,31 @@
+# Sofiar
+This repository is the device tree for Sofiar.  
+This readme will be used for general information on the roms I build for Sofiar.
+
+# Reporting Issues
+You can report issues [here](https://github.com/ph4n70m-404/device_motorola_sofiar-1/issues).  
+Be sure to include the name of the rom you are reporting an issue for.
+
+# Sofiar Trees
+**Device Tree:**  
+[device_motorola_sofiar](https://github.com/ph4n70m-404/device_motorola_sofiar-1)  
+**Vendor Tree:**  
+[vendor_motorola_sofiar](https://github.com/ph4n70m-404/vendor_motorola_sofiar)  
+**Samuel's Kernel:**  
+[kernel_motorola_trinket](https://github.com/S4muel007/kernel_motorola_trinket)
+
+# Havoc Sofiar Trees
+**Device Tree:**  
+[android_device_motorola_sofiar](https://github.com/Havoc-Devices/android_device_motorola_sofiar)  
+**Vendor Tree:**  
+[android_vendor_motorola_sofiar](https://github.com/Havoc-Devices/android_vendor_motorola_sofiar)  
+**Samuel's Kernel:**  
+[android_kernel_motorola_trinket](https://github.com/Havoc-Devices/android_kernel_motorola_trinket) 
+
+# Rom Downloads
+[Lineage OS builds](https://www.androidfilehost.com/?w=files&flid=328626)  
+[Miscellaneous/Defunct Builds](https://androidfilehost.com/?w=files&flid=329294)
+
 # How to adapt this tree to your needs.
 **(I would recommend you create a fork and do the edits there so that if you need help you can show the device tree to other people and pull any new commits i make to the new tree easily.)**  
 1. First off rename every instance of the word ROM to the roms name or what they internally call themselves, for example Potato Open Sauce Project shortens to potato.  

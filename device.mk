@@ -136,7 +136,7 @@ PRODUCT_PACKAGES += \
     libandroid_net
 
 PRODUCT_PACKAGES += \
-    LineageActions
+    MotoActions
 
 PRODUCT_PACKAGES += \
     vndk_package
@@ -231,7 +231,7 @@ PRODUCT_PACKAGES +=  \
     vendor.qti.hardware.bluetooth_dun-V1.0-java \
     libbtconfigstore \
     libbluetooth_qti
-    
+
 # Moto Camera 2
 PRODUCT_PACKAGES += \
     MotCamera2

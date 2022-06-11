@@ -177,18 +177,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MotoRav \
     MotoRavT \
-		MotoSofia \
+    MotoSofia \
     MotoSofiaP \
     MotoSofiaPSprout \
     MotoSofiaR
 
 PRODUCT_PACKAGES += \
-		SystemUI_MotoRav \
-		SystemUI_MotoRavT \
-		SystemUI_MotoSofia \
-		SystemUI_MotoSofiaP \
-		SystemUI_MotoSofiaPSprout \
-		SystemUI_MotoSofiaR
+    SystemUI_MotoRav \
+    SystemUI_MotoRavT \
+    SystemUI_MotoSofia \
+    SystemUI_MotoSofiaP \
+    SystemUI_MotoSofiaPSprout \
+    SystemUI_MotoSofiaR
 
 PRODUCT_BOOT_JARS += \
     android.hidl.manager-V1.0-java \

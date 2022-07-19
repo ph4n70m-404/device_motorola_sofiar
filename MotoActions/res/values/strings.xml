@@ -25,7 +25,14 @@
 
    <!-- Pip -->
    <string name="app_does_not_support_pip">App does not support picture-in-picture mode.</string>
-
+   
+   <!-- Dialog texts -->
+   <string name="dialog_ok">OK</string>
+   
+   <!-- Help texts -->
+   <string name="doze_settings_help_title">Help</string>
+   <string name="doze_settings_help_text">These features use sensor events to launch a doze notification pulse. The chosen sensor is only enabled when the device receives a notification, this helps to reduce battery usage. There is also an option to enable the chosen sensor as soon as the screen turns off, this will cause higher battery usage.</string>
+    
    <!-- Proximity sensor -->
    <string name="allow_proximity_sensor_title">Allow proximity sensor</string>
    <string name="allow_proximity_sensor_summary">Check the proximity sensor before performing the action</string>
